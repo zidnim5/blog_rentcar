@@ -12,13 +12,14 @@
 */
 
 Route::get('/', function () {
-    return redirect()->url('login');
+    return redirect()->route('login');
 });
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index');
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
+    Route::resource('profil','ProfilController');
 });
 
 
