@@ -24,7 +24,49 @@
 
 @section('content')
 
+    <div class="pull-right">
+        <a class="btn btn-primary btn-xs mb-3" href="{{ route('users.create') }}"> Create New User</a>
+    </div>
 
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th width="280px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        @php
+            $i = 1;
+        @endphp
+        @foreach ($data as $key => $user)
+        <tr>
+          <td>{{ $i++ }}</td>
+          <td>{{ $user->name }}</td>
+          <td>{{ $user->email }}</td>
+          <td>
+            @if(!empty($user->getRoleNames()))
+              @foreach($user->getRoleNames() as $v)
+                 <label class="badge badge-success">{{ $v }}</label>
+              @endforeach
+            @endif
+          </td>
+          <td>
+            <form action="{{ route('users.destroy', [$user->id]) }}" method="delete">
+                @csrf
+                <a class="btn btn-info btn-xs" href="{{ route('users.show',$user->id) }}">Show</a>
+                <a class="btn btn-primary btn-xs" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+            </form>
+          </td>
+        </tr>
+       @endforeach
+    </tbody>
+    </table>
+    {{ $data->links() }}
 @endsection
 
 @section('script')
