@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
@@ -40,7 +40,16 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">@lang('permission')</li>
+                <!-- <li class="nav-header">@lang('permission')</li> -->
+                <li class="nav-item">
+                    <a href="{{ route('permission.index') }}" class="nav-link @yield('active-permission')">
+                        <i class="nav-icon fa fa-key"></i>
+                        <p>
+                            @lang('permission')
+                            <span class="badge badge-info right">2</span>
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('roles.index') }}" class="nav-link @yield('active-role')">
                         <i class="nav-icon fa fa-key"></i>

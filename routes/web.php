@@ -20,6 +20,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('profil','ProfilController');
+    Route::resource('permission','PermissionController');
 });
 
 

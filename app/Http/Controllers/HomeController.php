@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $role = Role::find(1);
         return view('page.dashboard.index');
     }
 }
