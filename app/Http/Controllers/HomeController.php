@@ -26,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $role = Role::find(1);
+        Auth::user()->assignRole('admin');
         return view('page.dashboard.index');
     }
 }

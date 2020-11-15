@@ -21,6 +21,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users','UserController');
     Route::resource('profil','ProfilController');
     Route::resource('permission','PermissionController');
+    Route::delete('/roles/permission/{permission}', 'RoleController@revokePermission');
+    Route::post('/roles/permission', 'RoleController@assignPermission');
 });
 
 

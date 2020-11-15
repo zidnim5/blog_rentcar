@@ -52,6 +52,9 @@
                 @yield('content')
 
             </div><!-- /.container-fluid -->
+            
+            @yield('modal')
+            
           </section>
           <!-- /.content -->
         </div>

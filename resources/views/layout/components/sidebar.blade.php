@@ -46,7 +46,6 @@
                         <i class="nav-icon fa fa-key"></i>
                         <p>
                             @lang('permission')
-                            <span class="badge badge-info right">2</span>
                         </p>
                     </a>
                 </li>
@@ -55,7 +54,6 @@
                         <i class="nav-icon fa fa-key"></i>
                         <p>
                             @lang('main.role')
-                            <span class="badge badge-info right">2</span>
                         </p>
                     </a>
                 </li>

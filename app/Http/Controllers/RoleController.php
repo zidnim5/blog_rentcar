@@ -31,7 +31,7 @@ class RoleController extends Controller
      */
     public function index(Request $request)
     {
-        $roles = Role::orderBy('id','DESC')->paginate(5);
+        $roles = Role::orderBy('id','asc')->paginate(5);
         return view('page.roles.index', compact('roles'));
     }
 
@@ -56,14 +56,10 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:roles,name',
-            'permission' => 'required',
+            'name' => 'required|unique:roles',
         ]);
 
-
-        $role = Role::create(['name' => $request->input('name')]);
-        $role->syncPermissions($request->input('permission'));
-
+        $role = Role::create(['name' => $request->name]);
 
         return redirect()->route('roles.index')
                         ->with('success','Role created successfully');
@@ -95,13 +91,9 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::find($id);
-        $permission = Permission::get();
-        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
-            ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
-            ->all();
+        $permissions = Permission::get();
 
-
-        return view('roles.edit',compact('role','permission','rolePermissions'));
+        return view('page.roles.edit',compact('role', 'permissions'));
     }
 
 
@@ -139,8 +131,39 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        DB::table("roles")->where('id',$id)->delete();
+        Role::find($id)->delete();
         return redirect()->route('roles.index')
+                        ->with('success','Role deleted successfully');
+    }
+
+    /**
+     * revoke permission the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function revokePermission(Request $request)
+    {
+        $roles = Role::find($request->id_role);
+        $roles->revokePermissionTo($request->permission);
+
+        return redirect()->back()
+                        ->with('success','Role deleted successfully');
+    }
+    
+    /**
+     * revoke permission the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function assignPermission(Request $request)
+    {
+        $roles = Role::find($request->id_role);
+
+        $roles->givePermissionTo($request->permission);
+
+        return redirect()->back()
                         ->with('success','Role deleted successfully');
     }
 }
