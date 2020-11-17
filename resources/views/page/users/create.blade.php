@@ -5,7 +5,21 @@
 @endsection
 
 @section('css')
+  <link rel="stylesheet" href="https://harvesthq.github.io/chosen/chosen.css">
+<style>
+    #output {
+  padding: 20px;
+  background: transparent;
+}
 
+form {
+  margin-top: 20px;
+}
+
+select {
+  width: 300px;
+}
+</style>
 @endsection
 
 @section('breadcrumb')
@@ -24,6 +38,7 @@
 @endsection
 
 @section('content')
+
     <form action="{{ route('users.store') }}" method="post">
         @csrf
         <div class="row">
@@ -52,6 +67,23 @@
                     <input type="password" name="confirm-password" class="form-control @error('password') is-invalid @enderror" required>
                 </div>
             </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Role:</strong>
+                    <br>
+                    <div id="output" style="position: absolute;"></div>
+                    <select data-placeholder="Choose tags ..." name="tags[]" multiple class="chosen-select" class="form-control">
+                        <option value="Engineering">Engineering</option>
+                        <option value="Carpentry">Carpentry</option>
+                        <option value="Plumbing">Plumbing</option>
+                        <option value="Electical">Electrical</option>
+                        <option value="Mechanical">Mechanical</option>
+                        <option value="HVAC">HVAC</option>
+                    </select>    
+                </div>
+            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
@@ -60,5 +92,11 @@
 @endsection
 
 @section('script')
+<script src="https://harvesthq.github.io/chosen/chosen.jquery.js"></script>
 
+<script>
+document.getElementById('output').innerHTML = location.search;
+$(".chosen-select").chosen();
+
+</script>
 @endsection
