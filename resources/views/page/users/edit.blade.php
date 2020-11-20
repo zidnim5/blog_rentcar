@@ -11,7 +11,6 @@ active
 @section('breadcrumb')
 <div class="row mb-2">
     <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Users</h1>
     </div><!-- /.col -->
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -57,7 +56,7 @@ active
                             <div class="form-group">
                                 <strong>Role:</strong>
                                 <br>
-                                <select name="roles" id="role" class="form-control" require>
+                                <select name="roles" id="role" class="form-control" required>
                                     <option value="">--Pilih--</option>
                                     @foreach($roles as $item_role)
                                     <option value="{{ $item_role->name }}" @if($user->roles->first()->name == $item_role->name) selected  @endif> {{ $item_role->name }} </option>
