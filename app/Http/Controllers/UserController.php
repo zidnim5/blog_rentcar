@@ -29,7 +29,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('page.users.create');
+        $role = Role::all();
+        return view('page.users.create', compact('role'));
     }
 
 
@@ -83,7 +84,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $roles = Role::pluck('name','name')->all();
+        $roles = Role::all();
         $userRole = $user->roles->pluck('name','name')->all();
 
         return view('page.users.edit',compact('user','roles','userRole'));
@@ -117,11 +118,12 @@ class UserController extends Controller
         }
 
         $user = User::find($id);
+
         $user->update($input);
-        // DB::table('model_has_roles')->where('model_id',$id)->delete();
 
-
-        // $user->assignRole($request->input('roles'));
+        // only can assign 1 role
+        $user->removeRole($user->roles->first()->name);
+        $user->assignRole($request->input('roles'));
 
 
         return redirect()->route('users.index')

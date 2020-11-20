@@ -11,7 +11,6 @@ active
 @section('breadcrumb')
 <div class="row mb-2">
     <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Roles</h1>
     </div><!-- /.col -->
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -30,11 +29,21 @@ active
     </div>
 @enderror
 
-<div class="col-md-12 mb-3">
-    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#create-role">New</a>
-</div>
-<div class="col-md-12">
-    <table class="table table-bordered">
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-default">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3>Roles</h3>
+                </div>
+                <div class="card-tools">    
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#create-role">Create New Role</a>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+            <<table class="table table-bordered">
         <tr>
             <th>No</th>
             <th>Name</th>
@@ -59,17 +68,30 @@ active
                 <!-- <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}">Edit</a> -->
                 <!-- endcan -->
                 <!-- can('role-delete') -->
-                <!-- <form action="{{ route('roles.destroy', [$role->id]) }}" method="POST"> -->
-                    <!-- method('DELETE') -->
+                <form action="{{ route('roles.destroy', [$role->id]) }}" method="POST">
+                    @method('DELETE')
                     @csrf
-                    <a class="btn btn-primary btn-xs" href="{{ route('roles.edit',$role->id) }}">Edit</a>
-                    <a type="submit" data-url="{{ route('roles.destroy', [$role->id]) }}" class="btn btn-danger btn-xs delete-role" data-toggle="modal" data-target="#delete-role">Delete</a>
-                <!-- </form> -->
+                    <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                    <button type="submit" data-url="{{ route('roles.destroy', [$role->id]) }}" class="btn btn-danger delete-role text-white" data-toggle="" data-target="#" onclick="return confirm('Are you sure ?')">Delete</button>
+                </form>
                 <!-- endcan -->
             </td>
         </tr>
         @endforeach
     </table>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-12 mb-3">
+</div>
+<div class="col-md-12">
+    
 </div>
 @endsection
 

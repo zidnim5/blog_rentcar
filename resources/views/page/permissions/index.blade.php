@@ -23,8 +23,20 @@
 @endsection
 
 @section('content')
-    <a href="{{ route('permission.create') }}">New</a>
-    <table class="table table-bordered">
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-default">
+            <div class="card-header">
+                <div class="card-title">
+                </div>
+                <div class="card-tools">
+                    <a href="{{ route('permission.create') }}" class="btn btn-primary">Create New Permission</a>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+            <table class="table table-bordered">
         <tr>
             <th>No</th>
             <th>Name</th>
@@ -45,7 +57,7 @@
                         <!-- endcan -->
                         <!-- can('item_permission-delete') -->
                             @csrf
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</button>
                         <!-- endcan -->
                     </form>
 
@@ -53,6 +65,14 @@
             </tr>
         @endforeach
     </table>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
 @endsection
 
 @section('script')

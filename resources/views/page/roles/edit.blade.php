@@ -25,16 +25,16 @@ active
 
 @section('content')
 <div class="row">
-    <div class="col-md-12 mb-3">
-        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#assign-permission">New</a>
-    </div>
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="card card-success card-outline">
             <div class="card-header">
                 <h3 class="card-title">
                     <i class="fas fa-edit"></i>
                     {{ $role->name }}
                 </h3>
+                <div class="card-tools">
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#assign-permission">Add new</a>
+                </div>
             </div>
             <div class="card-body">
                 @foreach($role->getAllPermissions() as $permission)

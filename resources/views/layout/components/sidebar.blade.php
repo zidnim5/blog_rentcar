@@ -40,6 +40,9 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <hr style="border-color:#5a5656">
+                </li>
                 <!-- <li class="nav-header">@lang('permission')</li> -->
                 <li class="nav-item">
                     <a href="{{ route('permission.index') }}" class="nav-link @yield('active-permission')">
