@@ -63,18 +63,17 @@ active
                 @endforeach
             </td>
             <td>
-                <!-- <a class="btn btn-info" href="{{ route('roles.show', $role->id) }}">Show</a> -->
-                <!-- can('role-edit') -->
-                <!-- <a class="btn btn-primary" href="{{ route('roles.edit', $role->id) }}">Edit</a> -->
-                <!-- endcan -->
-                <!-- can('role-delete') -->
+                @can('role-delete')
                 <form action="{{ route('roles.destroy', [$role->id]) }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                    <!-- <a class="btn btn-primary text-white" href="{{ route('roles.show', $role->id) }}">Show</a> -->
+                    @can('role-edit')
+                        <a class="btn btn-primary text-white" href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                    @endcan
                     <button type="submit" data-url="{{ route('roles.destroy', [$role->id]) }}" class="btn btn-danger delete-role text-white" data-toggle="" data-target="#" onclick="return confirm('Are you sure ?')">Delete</button>
                 </form>
-                <!-- endcan -->
+                @endcan
             </td>
         </tr>
         @endforeach

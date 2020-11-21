@@ -31,7 +31,9 @@
                 <div class="card-title">
                 </div>
                 <div class="card-tools">
-                    <a href="{{ route('permission.create') }}" class="btn btn-primary">Create New Permission</a>
+                    <!-- can('item_permission-create') -->
+                        <a href="{{ route('permission.create') }}" class="btn btn-primary">Create New Permission</a>
+                    <!-- endcan -->
                 </div>
             </div>
             <!-- /.card-header -->
@@ -52,13 +54,13 @@
                 <td>
                     <form action="{{ route('permission.destroy', [$item_permission->id]) }}" method="post">
                         @method('Delete')
-                        <!-- can('item_permission-edit') -->
+                        @can('item_permission-edit')
                             <a class="btn btn-primary" href="{{ route('permission.edit', $item_permission->id) }}">Edit</a>
-                        <!-- endcan -->
-                        <!-- can('item_permission-delete') -->
+                        @endcan
+                        @can('item_permission-delete')
                             @csrf
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</button>
-                        <!-- endcan -->
+                        @endcan
                     </form>
 
                 </td>
@@ -68,6 +70,7 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
+                {{ $permissions->links() }}
             </div>
         </div>
     </div>

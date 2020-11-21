@@ -10,6 +10,14 @@ use DB;
 
 class UserController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('permission:user-create|user-edit|user-delete|role-delete', ['only' => ['index','store']]);
+        $this->middleware('permission:user-create', ['only' => ['create','store']]);
+        $this->middleware('permission:user-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+    }
+    
     /**
      * Display a listing of the resource.
      *

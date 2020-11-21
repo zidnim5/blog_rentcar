@@ -79,7 +79,7 @@ class RoleController extends Controller
             ->get();
 
 
-        return view('roles.show',compact('role','rolePermissions'));
+        return view('page.roles.show',compact('role','rolePermissions'));
     }
 
 
