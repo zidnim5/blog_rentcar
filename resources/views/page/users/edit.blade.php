@@ -14,7 +14,8 @@ active
     </div><!-- /.col -->
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{url('home')}}">Home</a></li>
+
             <li class="breadcrumb-item active">Users</li>
             <li class="breadcrumb-item active">create</li>
         </ol>
@@ -59,7 +60,7 @@ active
                                 <select name="roles" id="role" class="form-control" required>
                                     <option value="">--Pilih--</option>
                                     @foreach($roles as $item_role)
-                                    <option value="{{ $item_role->name }}" @if($user->roles->first()->name == $item_role->name) selected  @endif> {{ $item_role->name }} </option>
+                                    <option value="{{ $item_role->name }}" @if($user->roles->first()->name == $item_role->name) selected @endif> {{ $item_role->name }} </option>
                                     @endforeach
                                 </select>
                             </div>
