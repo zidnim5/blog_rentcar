@@ -35,7 +35,7 @@ active
                 <div class="card-tools">
                     @can('role-edit')
                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#assign-permission">Add new</a>
-                    @encan
+                    @endcan
                 </div>
             </div>
             <div class="card-body">
