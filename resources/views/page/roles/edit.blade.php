@@ -33,15 +33,19 @@ active
                     {{ $role->name }}
                 </h3>
                 <div class="card-tools">
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#assign-permission">Add new</a>
+                    @can('role-edit')
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#assign-permission">Add new</a>
+                    @encan
                 </div>
             </div>
             <div class="card-body">
-                @foreach($role->getAllPermissions() as $permission)
-                <a href="#" class="btn btn-default permissions" data-toggle="modal" data-target="#revoke-permission" data-url="{{ url('/roles/permission/'.$permission->name) }}">
-                    {{$permission->name}} <i class="fa fa-times text-danger" style="font-size:12px;"></i>
-                </a>
-                @endforeach
+                @can('role-edit')
+                    @foreach($role->getAllPermissions() as $permission)
+                    <a href="#" class="btn btn-default permissions" data-toggle="modal" data-target="#revoke-permission" data-url="{{ url('/roles/permission/'.$permission->name) }}">
+                        {{$permission->name}} <i class="fa fa-times text-danger" style="font-size:12px;"></i>
+                    </a>
+                    @endforeach
+                @endcan
             </div>
             <!-- /.card -->
         </div>

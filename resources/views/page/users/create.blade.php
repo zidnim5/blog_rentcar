@@ -42,7 +42,7 @@ active
         <div class="card card-default">
             <div class="card-header">
                 <div class="card-title">
-                    <h3> Create User </h3>
+                    <h3> Create User @error('email') {{ $message }} @enderror</h3>
                 </div>
             </div>
             <!-- /.card-header -->

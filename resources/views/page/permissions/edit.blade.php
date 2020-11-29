@@ -42,7 +42,9 @@
                 <input type="text" name="name"  class="form-control @error('name') is-invalid  @enderror" placeholder="ex : role-list" value="{{ $permission->name }}">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary"> Update </button>
+                @can('item_permission-edit')
+                    <button type="submit" class="btn btn-primary"> Update </button>
+                @endcan
             </div>
         </form>
             </div>

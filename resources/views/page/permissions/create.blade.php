@@ -41,7 +41,9 @@ active
                         <input type="text" name="name" class="form-control @error('name') is-invalid  @enderror" placeholder="ex : role-list">
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary"> Create </button>
+                        @can('item_permission-create')
+                            <button type="submit" class="btn btn-primary"> Create </button>
+                        @endcan
                     </div>
                     </form>
             </div>

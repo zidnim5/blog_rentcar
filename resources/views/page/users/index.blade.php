@@ -65,8 +65,12 @@ active
                             @method('delete')
                             @csrf
                             <a class="btn btn-warning text-white" href="{{ route('users.show',$user->id) }}">Show</a>
-                            <a class="btn btn-primary text-white" href="{{ route('users.edit',$user->id) }}">Edit</a>
-                            <button type="submit" class="btn btn-danger" onClick="return confirm('Are you sure ?')">Delete</button>
+                            @can('user-edit')
+                                <a class="btn btn-primary text-white" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                            @endcan
+                            @can('user-delete')
+                                <button type="submit" class="btn btn-danger" onClick="return confirm('Are you sure ?')">Delete</button>
+                            @endcan
                         </form>
                     </td>
                 </tr>

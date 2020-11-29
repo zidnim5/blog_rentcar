@@ -71,7 +71,9 @@ active
                     @can('role-edit')
                         <a class="btn btn-primary text-white" href="{{ route('roles.edit',$role->id) }}">Edit</a>
                     @endcan
+                    @can('role-delete')
                     <button type="submit" data-url="{{ route('roles.destroy', [$role->id]) }}" class="btn btn-danger delete-role text-white" data-toggle="" data-target="#" onclick="return confirm('Are you sure ?')">Delete</button>
+                    @endcan
                 </form>
                 @endcan
             </td>
