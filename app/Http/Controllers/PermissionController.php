@@ -61,8 +61,9 @@ class PermissionController extends Controller
 
         $permission = Permission::create(['name' => $request->input('name'), 'guard_name'=>'web']);
 
-        return redirect()->route('permission.index')
-                        ->with('success','Permission created successfully');
+        alert()->success('Permission created successfully', "Success");
+
+        return redirect()->route('permission.index');
     }
     /**
      * Display the specified resource.
@@ -114,8 +115,9 @@ class PermissionController extends Controller
         $permission->name = $request->input('name');
         $permission->save();
 
-        return redirect()->route('permission.index')
-                        ->with('success','Permission updated successfully');
+        alert()->success('Permission updated successfully', "Success");
+
+        return redirect()->route('permission.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -126,7 +128,9 @@ class PermissionController extends Controller
     public function destroy($id)
     {
         DB::table("permissions")->where('id',$id)->delete();
-        return redirect()->route('permission.index')
-                        ->with('success','Permission deleted successfully');
+
+        alert()->success('Permission deleted successfully', "Success");
+
+        return redirect()->route('permission.index');
     }
 }

@@ -35,6 +35,8 @@ class ProfilController extends Controller
         Auth::user()->password = !empty($request->password) ? $request->password : Auth::user()->password;
 
         Auth::user()->save();
+        
+        alert()->success(' ', "Success");
 
         return back();
 

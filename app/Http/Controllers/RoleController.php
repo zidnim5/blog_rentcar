@@ -62,8 +62,9 @@ class RoleController extends Controller
 
         $role = Role::create(['name' => $request->name]);
 
-        return redirect()->route('roles.index')
-                        ->with('success','Role created successfully');
+        alert()->success('Role created successfully', "Success");
+
+        return redirect()->route('roles.index');
     }
     /**
      * Display the specified resource.
@@ -120,9 +121,9 @@ class RoleController extends Controller
 
         $role->syncPermissions($request->input('permission'));
 
+        alert()->success('Role updated successfully', "Success");
 
-        return redirect()->route('roles.index')
-                        ->with('success','Role updated successfully');
+        return redirect()->route('roles.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -134,8 +135,10 @@ class RoleController extends Controller
     {
 
         Role::find($id)->delete();
-        return redirect()->route('roles.index')
-                        ->with('success','Role deleted successfully');
+
+        alert()->success('Role deleted successfully', "Success");
+
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -149,8 +152,9 @@ class RoleController extends Controller
         $roles = Role::find($request->id_role);
         $roles->revokePermissionTo($request->permission);
 
-        return redirect()->back()
-                        ->with('success','Role deleted successfully');
+        alert()->success('Role deleted successfully', "Success");
+
+        return redirect()->back();
     }
     
     /**
@@ -165,7 +169,8 @@ class RoleController extends Controller
 
         $roles->givePermissionTo($request->permission);
 
-        return redirect()->back()
-                        ->with('success','Role deleted successfully');
+        alert()->success('Role deleted successfully', "Success");
+
+        return redirect()->back();
     }
 }
