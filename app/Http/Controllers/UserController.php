@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use App\User;
+use Alert;
 use Hash;
 use DB;
 
@@ -64,8 +65,7 @@ class UserController extends Controller
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
 
-        alert()->success(' ', "Success");
-
+        Alert::success('Success', '');
 
         return redirect()->route('users.index')
                         ->with('success','User created successfully');
@@ -117,7 +117,6 @@ class UserController extends Controller
 
         $input = $request->all();
         if(!empty($input['password'])){
-
             $this->validate($request, [
                 'password' => 'same:confirm-password',
             ]);
@@ -135,8 +134,7 @@ class UserController extends Controller
         $user->removeRole($user->roles->first()->name);
         $user->assignRole($request->input('roles'));
 
-        alert()->success(' ', "Success");
-
+        Alert::success('Success', '');
 
         return redirect()->route('users.index')
                         ->with('success','User updated successfully');
@@ -152,8 +150,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        
-        alert()->success(' ', "Success");
+
+        Alert::success('Success', '');
 
         return redirect()->route('users.index')
                         ->with('success','User deleted successfully');

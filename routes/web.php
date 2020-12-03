@@ -25,5 +25,4 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/roles/permission', 'RoleController@assignPermission');
 });
 
-
 Auth::routes();

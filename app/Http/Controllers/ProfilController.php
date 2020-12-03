@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Alert;
 use Auth;
 
 class ProfilController extends Controller
@@ -35,9 +36,9 @@ class ProfilController extends Controller
         Auth::user()->password = !empty($request->password) ? $request->password : Auth::user()->password;
 
         Auth::user()->save();
-        
-        alert()->success(' ', "Success");
 
+        Alert::success('Success', '');
+        
         return back();
 
     }

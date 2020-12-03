@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Alert;
 use DB;
 
 class RoleController extends Controller
@@ -62,7 +63,7 @@ class RoleController extends Controller
 
         $role = Role::create(['name' => $request->name]);
 
-        alert()->success('Role created successfully', "Success");
+        Alert::success('Success', 'Role created successfully');
 
         return redirect()->route('roles.index');
     }
@@ -121,6 +122,8 @@ class RoleController extends Controller
 
         $role->syncPermissions($request->input('permission'));
 
+        Alert::success('Success', 'Role Updated Successfully');
+
         alert()->success('Role updated successfully', "Success");
 
         return redirect()->route('roles.index');
@@ -136,7 +139,7 @@ class RoleController extends Controller
 
         Role::find($id)->delete();
 
-        alert()->success('Role deleted successfully', "Success");
+        Alert::success('Success', 'Role deleted successfully');
 
         return redirect()->route('roles.index');
     }
@@ -152,7 +155,7 @@ class RoleController extends Controller
         $roles = Role::find($request->id_role);
         $roles->revokePermissionTo($request->permission);
 
-        alert()->success('Role deleted successfully', "Success");
+        Alert::success('Success', '');
 
         return redirect()->back();
     }
@@ -169,7 +172,7 @@ class RoleController extends Controller
 
         $roles->givePermissionTo($request->permission);
 
-        alert()->success('Role deleted successfully', "Success");
+        Alert::success('Success', '');
 
         return redirect()->back();
     }

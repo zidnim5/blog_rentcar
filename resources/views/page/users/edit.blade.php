@@ -67,13 +67,13 @@ active
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Password:</strong>
-                                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" value="">
+                                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" value="" autocomplete="off">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Confirm Password:</strong>
-                                    <input type="password" name="confirm-password" class="form-control @error('password') is-invalid @enderror">
+                                    <input type="password" name="confirm-password" class="form-control @error('password') is-invalid @enderror" autocomplete="off">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+Use Alert;
 use DB;
 
 class PermissionController extends Controller
@@ -61,8 +62,8 @@ class PermissionController extends Controller
 
         $permission = Permission::create(['name' => $request->input('name'), 'guard_name'=>'web']);
 
-        alert()->success('Permission created successfully', "Success");
-
+        Alert::success('Success', 'Permission created successfully');
+        
         return redirect()->route('permission.index');
     }
     /**
@@ -115,7 +116,7 @@ class PermissionController extends Controller
         $permission->name = $request->input('name');
         $permission->save();
 
-        alert()->success('Permission updated successfully', "Success");
+        Alert::success('Success', 'Permission updated successfully');
 
         return redirect()->route('permission.index');
     }
@@ -129,7 +130,8 @@ class PermissionController extends Controller
     {
         DB::table("permissions")->where('id',$id)->delete();
 
-        alert()->success('Permission deleted successfully', "Success");
+        Alert::success("Success", 'Permission deleted successfully');
+
 
         return redirect()->route('permission.index');
     }
