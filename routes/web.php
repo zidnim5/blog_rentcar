@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+Route::get('/', 'Auth\LoginController@loginRedirect');
+
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index');
