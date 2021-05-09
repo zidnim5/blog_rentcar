@@ -54,6 +54,28 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        
+        'article' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/articles'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+        
+        'contact' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/contacts'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+        
+        'galery' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/galeries'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

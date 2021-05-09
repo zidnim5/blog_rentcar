@@ -229,4 +229,6 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ],
 
+    'base_url' => env('APP_URL')
+
 ];

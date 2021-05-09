@@ -16,6 +16,8 @@ return [
     'permission' => 'Permission',
     'dashboard' => 'Dashboard',
     'role' => 'Role',
-    'user' => 'User'
-
+    'user' => 'User',
+    'article' => 'Article',
+    'galery' => 'Galery',
+    'contact' => 'Contact'
 ];

@@ -40,6 +40,30 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('articles.index') }}" class="nav-link @yield('active-article')">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            @lang('main.article')
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('galery.index') }}" class="nav-link @yield('active-galery')">
+                        <i class="nav-icon fas fa-image"></i>
+                        <p>
+                            @lang('main.galery')
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('contact.index') }}" class="nav-link @yield('active-contact')">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            @lang('main.contact')
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <hr style="border-color:#5a5656">
                 </li>
                 <!-- <li class="nav-header">@lang('permission')</li> -->
