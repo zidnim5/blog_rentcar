@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Controllers\Traits\MediaServiceTrait;
 
-class ArticleResource extends JsonResource
+class GaleryResource extends JsonResource
 {
 
     use MediaServiceTrait;
@@ -17,10 +17,9 @@ class ArticleResource extends JsonResource
      */
     public function toArray($request)
     {
-
         if($this->resource){
-            if (isset($this->getMedia('article')[0])) {
-                $original = $this->UrlGenerator('article',$this->getMedia('article')[0]->getUrl());
+            if (isset($this->getMedia('galery')[0])) {
+                $original = $this->UrlGenerator('galery',$this->getMedia('galery')[0]->getUrl());
                 
                 $image_cover = config('app.base_url').'/'.$original;
             }
@@ -29,8 +28,7 @@ class ArticleResource extends JsonResource
         return [
             'slug'=>$this->slug ?? null,
             'title'=>$this->title ?? null,
-            'content'=>$this->content ?? null,
-            'view'=>$this->view ?? null,
+            'desc'=>$this->desc ?? null,
             'image_cover' => $image_cover ?? null 
         ];
     }

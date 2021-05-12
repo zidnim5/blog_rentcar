@@ -56,8 +56,10 @@ class GaleryController extends Controller
             'title' => 'required',
             'desc' => 'required',
         ]);
+        $slug = str_replace(' ', '-',strtolower($request->title));
 
         $data = new GaleryModel;
+        $data->slug = $slug;
         $data->title = $request->title;
         $data->desc = $request->desc;
 

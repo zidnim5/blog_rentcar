@@ -19,13 +19,4 @@ class GaleryModel extends Model implements HasMedia
      {
          $this->addMediaCollection('galery')->useDisk('galery');
      }
-
-    public function registerMediaConversions(Media $media = null)
-    {
-        $this->addMediaConversion('galery')
-            ->nonQueued();
-
-        $this->addMediaConversion('original')
-            ->nonQueued();
-   }
 }
