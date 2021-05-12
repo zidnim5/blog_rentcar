@@ -56,9 +56,11 @@ class ArticleController extends Controller
             'title' => 'required',
             'content' => 'required',
         ]);
+        $slug = str_replace(' ', '-',strtolower($request->title));
 
         $data = new ArticleModel;
         $data->title = $request->title;
+        $data->slug = $slug;
         $data->content = $request->content;
 
         $data->save();
@@ -82,7 +84,7 @@ class ArticleController extends Controller
         $data = ArticleModel::find($id);
         $asset = '';
         if (isset($data->getMedia('article')[0])) {
-            $article_original = $this->UrlGenerator('article',$data->getMedia('article')[0]->getUrl('original'));
+            $article_original = $this->UrlGenerator('article',$data->getMedia('article')[0]->getUrl());
             
             $asset = config('app.base_url').'/'.$article_original;
         }

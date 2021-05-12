@@ -13,8 +13,9 @@ class CreateArticleTable extends Migration
      */
     public function up()
     {
-        Schema::create('article', function (Blueprint $table) {
+        Schema::create('article', function (Blueprint $table) {  
             $table->bigIncrements('id');
+            $table->string('slug')->unique();
             $table->string('title');
             $table->text('content');
             $table->integer('view')->default(0);

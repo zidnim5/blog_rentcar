@@ -9,7 +9,7 @@ use Alert;
 use Hash;
 use App\Http\Controllers\Traits\MediaServiceTrait;
 
-class galeryController extends Controller
+class GaleryController extends Controller
 {
 
     use MediaServiceTrait;

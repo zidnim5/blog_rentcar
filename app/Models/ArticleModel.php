@@ -20,13 +20,4 @@ class ArticleModel extends Model implements HasMedia
      {
          $this->addMediaCollection('article')->useDisk('article');
      }
-
-    public function registerMediaConversions(Media $media = null)
-    {
-        $this->addMediaConversion('article')
-            ->nonQueued();
-
-        $this->addMediaConversion('original')
-            ->nonQueued();
-   }
 }
