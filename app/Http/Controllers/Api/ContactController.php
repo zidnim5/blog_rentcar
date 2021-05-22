@@ -10,7 +10,7 @@ use App\Http\Resources\ContactResource;
 class ContactController extends Controller
 {
     public function index(){
-        $data = ContactModel::orderBy('id','DESC')->paginate(5);
-        return response()->json(['success'=>true, 'data'=> ContactResource::collection($data)], 200);
+        $data = ContactModel::orderBy('id','DESC')->first();
+        return response()->json(['success'=>true, 'data'=> new ContactResource($data)], 200);
     }
 }

@@ -29,7 +29,7 @@ active
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{url('home')}}">Home</a></li>
-            <li class="breadcrumb-item active">Article</li>
+            <li class="breadcrumb-item active">Car</li>
             <li class="breadcrumb-item active">create</li>
         </ol>
     </div><!-- /.col -->
@@ -42,7 +42,7 @@ active
         <div class="card card-default">
             <div class="card-header">
                 <div class="card-title">
-                    <h3> Create Article @error('email') {{ $message }} @enderror</h3>
+                    <h3> Create Car @error('email') {{ $message }} @enderror</h3>
                 </div>
             </div>
             <!-- /.card-header -->

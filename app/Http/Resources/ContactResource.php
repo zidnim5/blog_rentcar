@@ -15,10 +15,10 @@ class ContactResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'number' => $this->number ?? null,
-            'address' => $this->addrss ?? null,
-            'email' => $this->email ?? null,
-            'maps' => $this->maps ?? null
+            'number' => $this->number ?? '-',
+            'address' => $this->addrss ?? '-',
+            'email' => $this->email ?? '-',
+            'maps' => $this->maps ?? '-'
         ];
     }
 }

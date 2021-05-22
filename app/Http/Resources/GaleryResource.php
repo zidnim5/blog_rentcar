@@ -20,7 +20,6 @@ class GaleryResource extends JsonResource
         if($this->resource){
             if (isset($this->getMedia('galery')[0])) {
                 $original = $this->UrlGenerator('galery',$this->getMedia('galery')[0]->getUrl());
-                
                 $image_cover = config('app.base_url').'/'.$original;
             }
         }

@@ -17,7 +17,7 @@ class CreateTableGaleryTable extends Migration
             $table->bigIncrements('id');
             $table->string('slug')->unique();
             $table->string('title');
-            $table->text('desc');
+            $table->text('desc')->nullable();
             $table->timestamps();
         });
     }

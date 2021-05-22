@@ -16,7 +16,7 @@ active
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{url('home')}}">Home</a></li>
 
-            <li class="breadcrumb-item active">Article</li>
+            <li class="breadcrumb-item active">Car</li>
         </ol>
     </div><!-- /.col -->
 </div><!-- /.row -->
@@ -26,10 +26,10 @@ active
 <div class="card card-default">
     <div class="card-header">
         <div class="card-title">
-            <h3> Article </h3>
+            <h3> Car </h3>
         </div>
         <div class="card-tools">
-            <a class="btn btn-primary" href="{{ route('articles.create') }}"> Create New Article</a>
+            <a class="btn btn-primary" href="{{ route('articles.create') }}"> Create New Car</a>
         </div>
     </div>
     <!-- /.card-header -->

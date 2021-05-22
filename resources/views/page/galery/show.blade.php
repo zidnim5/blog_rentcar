@@ -59,12 +59,6 @@ active
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Description:</strong>
-                                <textarea name="desc" class="form-control @error('desc') is-invalid @enderror" value="" required>{{ $data->desc }}</textarea>
-                            </div>
-                        </div> 
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
                                 <strong>File:</strong>
                                 <input type="file" name="file" class="dropify" data-default-file="{{ $asset }}">
                             </div>

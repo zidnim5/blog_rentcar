@@ -43,7 +43,7 @@
                     <a href="{{ route('articles.index') }}" class="nav-link @yield('active-article')">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
-                            @lang('main.article')
+                            @lang('main.car')
                         </p>
                     </a>
                 </li>

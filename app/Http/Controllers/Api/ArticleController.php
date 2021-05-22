@@ -9,8 +9,8 @@ use App\Http\Resources\ArticleResource;
 
 class ArticleController extends Controller
 {
-    public function index() {
-        $data = ArticleModel::orderBy('id','DESC')->paginate(5);
+    public function index(Request $req) {
+        $data = ArticleModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 9);
 
         return response()->json(['success'=>true, 'data'=>ArticleResource::collection($data)], 200);
     }

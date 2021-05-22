@@ -18,6 +18,7 @@ return [
     'role' => 'Role',
     'user' => 'User',
     'article' => 'Article',
+    'car' => 'Car',
     'galery' => 'Galery',
     'contact' => 'Contact'
 ];

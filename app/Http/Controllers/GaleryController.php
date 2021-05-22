@@ -54,14 +54,13 @@ class GaleryController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'desc' => 'required',
         ]);
         $slug = str_replace(' ', '-',strtolower($request->title));
 
         $data = new GaleryModel;
         $data->slug = $slug;
         $data->title = $request->title;
-        $data->desc = $request->desc;
+        // $data->desc = $request->desc;
 
         $data->save();
 
@@ -84,7 +83,7 @@ class GaleryController extends Controller
         $data = GaleryModel::find($id);
         $asset = '';
         if (isset($data->getMedia('galery')[0])) {
-            $galery_origin = $this->UrlGenerator('galery',$data->getMedia('galery')[0]->getUrl('original'));
+            $galery_origin = $this->UrlGenerator('galery',$data->getMedia('galery')[0]->getUrl());
         }
         $asset = config('app.base_url').'/'.$galery_origin;
         return view('page.galery.show',compact('data', 'asset'));
@@ -116,13 +115,12 @@ class GaleryController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'desc' => 'required',
         ]);
 
         $data = GaleryModel::find($id);
 
         $data->title = $request->title;
-        $data->desc = $request->desc;
+        // $data->desc = $request->desc;
 
         $data->save();
 

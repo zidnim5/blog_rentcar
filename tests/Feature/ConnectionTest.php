@@ -6,14 +6,14 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ContactTest extends TestCase
+class ConnectionTest extends TestCase
 {
+   
     /** @test */
-    public function can_get_contact(){
+    public function test_connection_endpoint(){
         $this->withExceptionHandling();
-        
-        $response = $this->get('/api/contact');
-
+        $response = $this->get('/api/connecting');
+        dd($response);
         $response->assertStatus(200);
     }
 }
