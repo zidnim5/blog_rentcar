@@ -18,7 +18,8 @@ class ContactResource extends JsonResource
             'number' => $this->number ?? '-',
             'address' => $this->addrss ?? '-',
             'email' => $this->email ?? '-',
-            'maps' => $this->maps ?? '-'
+            'maps' => $this->maps ?? '-',
+            'social_media' => $this->social_media ?? '-'
         ];
     }
 }

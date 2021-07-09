@@ -18,6 +18,9 @@ class ArticleController extends Controller
     public function show($slug) {
         $data = ArticleModel::where('slug', $slug)->first();
 
-        return response()->json(['success'=>true, 'data'=>new ArticleResource($data)], 200);
+        if($data){
+            return response()->json(['success'=>true, 'data'=>new ArticleResource($data)], 200);
+        }
+        return response()->json(['success'=>false, 'message'=> 'Not found'], 200);
     }
 }

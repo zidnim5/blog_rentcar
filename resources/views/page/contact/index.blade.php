@@ -61,6 +61,24 @@ active
                                 <textarea name="maps" class="form-control @error('maps') is-invalid @enderror" required>{{ $data->maps }}</textarea>
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Facebook:</strong>
+                                <input type="text" name="facebook" class="form-control @error('facebook') is-invalid @enderror" value="{{ json_decode($data->social_media) ? json_decode($data->social_media)->facebook : '' }}">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Instagram:</strong>
+                                <input type="text" name="instagram" class="form-control @error('instagram') is-invalid @enderror" value="{{ json_decode($data->social_media) ? json_decode($data->social_media)->instagram : '' }}">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Twitter:</strong>
+                                <input type="text" name="twitter" class="form-control @error('twitter') is-invalid @enderror" value="{{ json_decode($data->social_media) ? json_decode($data->social_media)->twitter : '' }}">
+                            </div>
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary btn-block">Save</button>
                         </div>

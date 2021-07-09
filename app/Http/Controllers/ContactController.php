@@ -45,13 +45,14 @@ class ContactController extends Controller
             'email' => 'required',
             'maps' => 'required',
         ]);
-
+        
         $data = ContactModel::find($id);
 
         $data->number = $request->number;
         $data->address = $request->address;
         $data->email = $request->email;
         $data->maps = $request->maps;
+        $data->social_media = json_encode($request->only(['facebook', 'instagram', 'twitter']));
 
         $data->save();
 

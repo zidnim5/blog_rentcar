@@ -19,6 +19,7 @@ class CreateContactTable extends Migration
             $table->text('address');
             $table->string('email');
             $table->text('maps');
+            $table->json('social_media')->nullable();
             $table->timestamps();
         });
     }

@@ -22,6 +22,7 @@ trait  MediaServiceTrait
         $url = str_replace('127.0.0.1/', '', $url);
         $url = str_replace('localhost/', '', $url);
         $url = str_replace('localhost:8000/', '', $url);
+        $url = str_replace('rentcar_backend/public/', '', $url);
         $url = str_replace('storage/', '', $url);
 
         $url = explode('/',$url);
