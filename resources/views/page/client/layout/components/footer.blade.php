@@ -1,0 +1,81 @@
+<footer id="footer">
+     <div class="footer-top" style="margin-top:50px;">
+       <div class="container">
+         <div class="row">
+           <div class="col-lg-3 col-md-6 footer-contact">
+             <h3>PASIR RENTCAR<span>.</span></h3>
+             <p>
+               Desa Pasir Kulon Rt 2/2 <br />
+               Purwokerto, 53161<br />
+               Indonesia <br /><br />
+               <strong>Phone:</strong> 0857574827003<br />
+               <strong>Email:</strong> cs@passirentcar.com<br />
+             </p>
+           </div>
+ 
+           <div class="col-lg-2 col-md-6 footer-links"></div>
+ 
+           <div class="col-lg-4 col-md-6 footer-newsletter"></div>
+ 
+           <div class="col-lg-3 col-md-6 footer-links">
+             {{-- <h4>Our Services</h4>
+             <ul>
+               <li>
+                 <i class="bx bx-chevron-right"></i> <a href="#">Web Design</a>
+               </li>
+               <li>
+                 <i class="bx bx-chevron-right"></i>
+                 <a href="#">Web Development</a>
+               </li>
+               <li>
+                 <i class="bx bx-chevron-right"></i>
+                 <a href="#">Product Management</a>
+               </li>
+               <li>
+                 <i class="bx bx-chevron-right"></i> <a href="#">Marketing</a>
+               </li>
+               <li>
+                 <i class="bx bx-chevron-right"></i>
+                 <a href="#">Graphic Design</a>
+               </li>
+             </ul> --}}
+           </div>
+         </div>
+       </div>
+     </div>
+ 
+     <div class="container d-md-flex py-4">
+       <div class="me-md-auto text-center text-md-start">
+         <div class="copyright">
+           &copy; Copyright <strong><span>PASIRRETNCAR</span></strong
+           >. All Rights Reserved
+         </div>
+         <div class="credits">
+           <!-- All the links in the footer should remain intact. -->
+           <!-- You can delete the links only if you purchased the pro version. -->
+           <!-- Licensing information: https://bootstrapmade.com/license/ -->
+           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/presento-bootstrap-corporate-template/ -->
+           Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+         </div>
+       </div>
+       <div class="social-links text-center text-md-end pt-3 pt-md-0">
+         <a :href="state.social_media.twitter" class="twitter"
+           ><i class="bx bxl-twitter"></i
+         ></a>
+         <a :href="state.social_media.facebook" class="facebook"
+           ><i class="bx bxl-facebook"></i
+         ></a>
+         <a :href="state.social_media.instagram" class="instagram"
+           ><i class="bx bxl-instagram"></i
+         ></a>
+       </div>
+     </div>
+ 
+     <a
+       href="'https://api.whatsapp.com/send?phone=085747767270&text=Halo%20admin'"
+       class="wa"
+       target="_blank"
+     >
+       <i class="fa fa-whatsapp my-wa"></i>
+     </a>
+  </footer>

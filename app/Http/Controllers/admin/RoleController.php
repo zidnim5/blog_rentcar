@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Alert;
-use DB;
+use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {

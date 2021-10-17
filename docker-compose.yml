@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  rentcar_app :
+    build: 
+      context: .
+      dockerfile: dockerfile
+    container_name: rentcar_app
+    #restart: unless-stopped
+    volumes: 
+      - ./:/var/www
+    networks: 
+      - app
+
+  rentcar_server:
+    build:
+      context: .
+      dockerfile: nginx.dockerfile
+    container_name: web_server_rentcar
+    depends_on: 
+      - rentcar_app
+    networks: 
+      - app
+    expose: 
+        - "80"
+    volumes: 
+      - ./:/var/www
+
+networks:
+  app:
+    external: true

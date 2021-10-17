@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use App\User;
 use Alert;
 use Hash;
-use DB;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {

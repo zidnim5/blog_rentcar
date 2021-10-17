@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
-use App\Models\ArticleModel;
+use App\Models\GaleryModel;
 use Alert;
-use Hash;
 use App\Http\Controllers\Traits\MediaServiceTrait;
+use App\Http\Controllers\Controller;
 
-class ArticleController extends Controller
+class GaleryController extends Controller
 {
 
     use MediaServiceTrait;
@@ -28,8 +27,8 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
-        $data = ArticleModel::orderBy('id','DESC')->paginate(5);
-        return view('page.article.index', compact('data'));
+        $data = GaleryModel::orderBy('id','DESC')->paginate(5);
+        return view('page.galery.index', compact('data'));
     }
 
 
@@ -40,7 +39,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('page.article.create');
+        return view('page.galery.create');
     }
 
 
@@ -54,21 +53,20 @@ class ArticleController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'content' => 'required',
         ]);
         $slug = str_replace(' ', '-',strtolower($request->title));
 
-        $data = new ArticleModel;
-        $data->title = $request->title;
+        $data = new GaleryModel;
         $data->slug = $slug;
-        $data->content = $request->content;
+        $data->title = $request->title;
+        // $data->desc = $request->desc;
 
         $data->save();
 
         $extension = isset($request->file) ? $request->file->getClientOriginalExtension('file') : 'png';    
-        isset($request->file) ? $data->addMedia($request->file)->usingFileName(str_random().'.'.$extension)->toMediaCollection('article') : '';
+        isset($request->file) ? $data->addMedia($request->file)->usingFileName(str_random().'.'.$extension)->toMediaCollection('galery') : '';
         
-        return redirect()->route('articles.index')
+        return redirect()->route('galery.index')
                         ->with('success','User created successfully');
     }
 
@@ -81,14 +79,13 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        $data = ArticleModel::find($id);
+        $data = GaleryModel::find($id);
         $asset = '';
-        if (isset($data->getMedia('article')[0])) {
-            $article_original = $this->UrlGenerator('article',$data->getMedia('article')[0]->getUrl());
-            
-            $asset = config('app.base_url').'/'.$article_original;
+        if (isset($data->getMedia('galery')[0])) {
+            $galery_origin = $this->UrlGenerator('galery',$data->getMedia('galery')[0]->getUrl());
         }
-        return view('page.article.show',compact('data', 'asset'));
+        $asset = config('app.base_url').'/'.$galery_origin;
+        return view('page.galery.show',compact('data', 'asset'));
     }
 
 
@@ -100,9 +97,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        $article = ArticleModel::find($id);
+        $galery = GaleryModel::find($id);
 
-        return view('page.article.edit',compact('article'));
+        return view('page.galery.edit',compact('galery'));
     }
 
 
@@ -117,22 +114,21 @@ class ArticleController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'content' => 'required',
         ]);
 
-        $data = ArticleModel::find($id);
+        $data = GaleryModel::find($id);
 
         $data->title = $request->title;
-        $data->content = $request->content;
+        // $data->desc = $request->desc;
 
         $data->save();
 
         $extension = isset($request->file) ? $request->file->getClientOriginalExtension('file') : 'png';    
 
-        isset($request->file) ? $data->clearMediaCollection('article') : '';
-        isset($request->file) ? $data->addMedia($request->file)->usingFileName(str_random().'.'.$extension)->toMediaCollection('article') : '';
+        isset($request->file) ? $data->clearMediaCollection('galery') : '';
+        isset($request->file) ? $data->addMedia($request->file)->usingFileName(str_random().'.'.$extension)->toMediaCollection('galery') : '';
 
-        return redirect()->route('articles.index')
+        return redirect()->route('galery.index')
                         ->with('success','User updated successfully');
     }
 
@@ -145,13 +141,13 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        $data = ArticleModel::find($id);
-        $data->clearMediaCollection('article');
+        $data = GaleryModel::find($id);
+        $data->clearMediaCollection('galery');
         $data->delete();
 
         Alert::success('Success', '');
 
-        return redirect()->route('articles.index')
+        return redirect()->route('galery.index')
                         ->with('success','User deleted successfully');
     }
 }
