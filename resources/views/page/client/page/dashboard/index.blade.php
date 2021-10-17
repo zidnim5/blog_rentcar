@@ -116,7 +116,7 @@
 
     function getCar(){
       axios.post(`{{url("/url-here")}}`).then(function(response) {
-        
+            // stuff here
             }).catch(function(error){
               carError++
               if carError >2{
@@ -127,7 +127,7 @@
 
     function getGalery(){
       axios.post(`{{url("/url-here")}}`).then(function(response) {
-              
+            // stuff here 
             }).catch(function(error){
               galeryError++
               if galeryError >2{
