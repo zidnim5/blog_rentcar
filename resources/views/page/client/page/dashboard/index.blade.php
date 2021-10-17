@@ -9,18 +9,19 @@
 </section>
 
      <!-- ======= Car blog Section ======= -->
-     <section id="portfolio" class="portfolio">
-       <div class="container" style="margin-top:100px;margin-bottom:100px;" data-aos="fade-up">
- 
-         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
- 
-           @component('page.client.components.gridcard')
+     <section id="portfolio" class="portfolio" style="margin-top: 50px;">
+
+        <div class="section-title">
+          <h2>Car</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
+        </div>
+        <div class="car-listing" style="margin-top: -30px;">
+          @component('page.client.components.gridcard')
+          @endcomponent
+        </div>
+       
                
-           @endcomponent
- 
-         </div>
- 
-       </div>
+           
      </section><!-- End Portfolio Section -->
  
      <!-- ======= Services Section ======= -->
@@ -89,20 +90,11 @@
            <h2>Galery</h2>
            <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
          </div>
-       
- 
-         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
- 
-           <div class="container" data-aos="fade-up">
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-    
+
+         <div class="galery-listing" style="margin-top: -30px;">
               @component('page.client.components.gridcard')
                   
               @endcomponent
-    
-            </div>
-          </div>
- 
          </div>
  
        </div>
@@ -115,22 +107,24 @@
     let galeryError = 0 
 
     function getCar(){
-      axios.post(`{{url("/url-here")}}`).then(function(response) {
-            // stuff here
+      axios.get(`{{url("/api/car")}}`).then(function(response) {
+            console.log(response)
+            $('.car-listing').html(response.data)
             }).catch(function(error){
               carError++
-              if carError >2{
+              if (carError > 2){
                 console.log("failed fetching data car")
               }
             })
     }
 
     function getGalery(){
-      axios.post(`{{url("/url-here")}}`).then(function(response) {
-            // stuff here 
+      axios.get(`{{url("/api/galery")}}`).then(function(response) {
+        console.log(response)
+        $('.galery-listing').html(response.data)
             }).catch(function(error){
               galeryError++
-              if galeryError >2{
+              if (galeryError > 2) {
                 console.log("failed fetching data galery")
               }
             })
@@ -138,6 +132,8 @@
 
     $(document).ready(function() {
       // stuff here...      
+      getCar()
+      getGalery()
     });
 
   </script>

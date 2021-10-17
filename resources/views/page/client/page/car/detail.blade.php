@@ -12,7 +12,7 @@
          <div class="col-lg-8 entries">
            <article class="entry entry-single">
              <div class="entry-img">
-               <img :src="state.car.image_cover" alt="" class="img-fluid" />
+               <img :src="{{ $data->image_cover ?? null }}" alt="" class="img-fluid" />
              </div>
 
              <h2 class="entry-title">
@@ -50,10 +50,7 @@
                  ></a>
                </div>
                <p>
-                 Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum
-                 sed possimus accusantium. Quas repellat voluptatem officia
-                 numquam sint aspernatur voluptas. Esse et accusantium ut unde
-                 voluptas.
+                 {!! $data->content ?? null !!}.
                </p>
              </div>
            </div>
@@ -63,20 +60,9 @@
 
          <div class="col-lg-4">
            <div class="sidebar">
-             <h3 class="sidebar-title">Recent Posts</h3>
-             <div class="sidebar-item recent-posts">
-               <div
-                 v-for="item_car in state.cars"
-                 :key="item_car.slug"
-                 class="post-item clearfix"
-               >
-                 <img :src="item_car.image_cover" alt="" />
-                 <h4>
-                   <a href="car-slug" @click="window.onload()">title</a>
-                 </h4>
-                 <!-- <time datetime="2020-01-01">Admin</time> -->
-               </div>
-             </div>
+             @component('page.client.components.recentpost')
+                 
+             @endcomponent
              <!-- End sidebar recent posts-->
            </div>
            <!-- End sidebar -->

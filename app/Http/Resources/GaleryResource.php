@@ -27,7 +27,7 @@ class GaleryResource extends JsonResource
         return [
             'slug'=>$this->slug ?? null,
             'title'=>$this->title ?? null,
-            'desc'=>$this->desc ?? null,
+            'content'=>$this->desc ?? null,
             'image_cover' => $image_cover ?? null 
         ];
     }
