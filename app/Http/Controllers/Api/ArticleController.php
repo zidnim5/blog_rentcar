@@ -9,10 +9,14 @@ use App\Http\Resources\ArticleResource;
 
 class ArticleController extends Controller
 {
+
     public function index(Request $req) {
         $data = ArticleModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 9);
-
-        return response()->json(['success'=>true, 'data'=>ArticleResource::collection($data)], 200);
+        
+        $base_url = config('app.url').'/car/detail';
+        $view = view('page.client.components.gridcard', compact('data','base_url'));
+        
+        return $view;
     }
 
     public function show($slug) {
