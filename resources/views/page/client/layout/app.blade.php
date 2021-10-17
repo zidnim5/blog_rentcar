@@ -19,6 +19,12 @@
 
   <!-- shimmer -->
   <style>
+    .img-center{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
     .shine {
       background: #f6f7f8;
       background-image: linear-gradient(to right, #f6f7f8 0%, #e6e7e8 20%, #f6f7f8 40%, #f6f7f8 100%);
@@ -27,7 +33,7 @@
       display: inline-block;
       position: relative;
 
-      -webkit-animation-duration: 5s;
+      -webkit-animation-duration: 2s;
       -webkit-animation-fill-mode: forwards;
       -webkit-animation-iteration-count: infinite;
       -webkit-animation-name: placeholderShimmer;
@@ -51,7 +57,7 @@
       }
 
       50% {
-        background-position: 1000px 0;
+        background-position: 100% 0;
       }
 
       100% {

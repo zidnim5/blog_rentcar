@@ -11,7 +11,11 @@ class GaleryController extends Controller
 {
     public function index(Request $req) {
         $data = GaleryModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 9);
-        return response()->json(['success'=>true, 'data'=> GaleryResource::collection($data)], 200);
+
+        $base_url = config('app.url').'/car/detail';
+        $view = view('page.client.components.gridcard', compact('data','base_url'));
+        
+        return $view;
     }
 
     public function show($slug) {
