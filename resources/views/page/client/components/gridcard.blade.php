@@ -1,13 +1,25 @@
-     {{-- @param $data{ cover, title, link } --}}
+  {{-- 
+     $base_url = string
+     {
+          data: [
+               {
+                    'title' => string
+                    'slug' => string
+                    'imag_cover' => string
+               }
+          ]
+     }     
+--}}
+
      @if(isset($data))
      @foreach($data as $item_data)
       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
           <div class="portfolio-wrap">
-            <img :src="{{ $item_data->cover }}" class="img-fluid" alt="">
+            <img src="{{ $item_data->image_cover }}" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>{{ $item_data->title }}</h4>
               <div class="portfolio-links">
-                <a href="{{ $item_data->link }}" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="{{ $base_url }}.'/'.{{ $item_data->slug }}" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
