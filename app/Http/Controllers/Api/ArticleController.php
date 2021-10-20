@@ -11,10 +11,15 @@ class ArticleController extends Controller
 {
 
     public function index(Request $req) {
-        $data = ArticleModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 9);
+        $data = ArticleModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 10);
+
+        $base_url = config('app.url').'/car/';
         
-        $base_url = config('app.url').'/car/detail';
-        $view = view('page.client.components.gridcard', compact('data','base_url'));
+        if(!isset($req->recentpost)){
+            $view = view('page.client.components.gridcard', compact('data','base_url'));
+        }else{
+            $view = view('page.client.components.recentpost', compact('data','base_url'));
+        }
         
         return $view;
     }

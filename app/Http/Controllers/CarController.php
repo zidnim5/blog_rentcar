@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ArticleModel;
 
 class CarController extends Controller
 {
@@ -10,7 +11,9 @@ class CarController extends Controller
         return view("page.client.page.car.index");
     }
 
-    public function detail(){
-        return view("page.client.page.car.detail");
+    public function detail(Request $req){
+        $data = ArticleModel::where('slug', $req->slug)->first();
+
+        return view("page.client.page.car.detail", compact('data'));
     }
 }

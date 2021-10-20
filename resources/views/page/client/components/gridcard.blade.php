@@ -24,11 +24,21 @@
      @foreach($data as $item_data)
       <div class="col-lg-4 col-md-6 portfolio-item filter-app">
           <div class="portfolio-wrap">
-            <img src="{{ $item_data->image_cover  ?? "http://pasirrentcar.com/admin/img/vehicleimages/avanza.png"}}" class="img-fluid" alt="">
+               @php
+                    $image_cover = null;   
+               @endphp
+               @inject('urlgen', '\App\Http\Controllers\Injection\MediaService')
+               @if (isset($item_data->getMedia('article')[0]))
+                    @php
+                         $original = $urlgen->UrlGenerator('article',$item_data->getMedia('article')[0]->getUrl());
+                         $image_cover = config('app.base_url').'/'.$original;
+                    @endphp
+               @endif
+            <img src="{{ $image_cover  ?? "http://pasirrentcar.com/admin/img/vehicleimages/avanza.png"}}" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>{{ $item_data->title }}</h4>
               <div class="portfolio-links">
-                <a href="{{ $base_url }}.'/'.{{ $item_data->slug }}" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="{{ $base_url }}{{ $item_data->slug }}" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>

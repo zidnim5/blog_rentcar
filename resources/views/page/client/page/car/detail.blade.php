@@ -11,12 +11,24 @@
        <div class="row">
          <div class="col-lg-8 entries">
            <article class="entry entry-single">
-             <div class="entry-img">
-               <img :src="{{ $data->image_cover ?? null }}" alt="" class="img-fluid" />
+             <div class="img-center">
+               
+              @php
+                $image_cover = null;   
+              @endphp
+              @inject('urlgen', '\App\Http\Controllers\Injection\MediaService')
+              @if (isset($data->getMedia('article')[0]))
+                    @php
+                        $original = $urlgen->UrlGenerator('article',$data->getMedia('article')[0]->getUrl());
+                        $image_cover = config('app.base_url').'/'.$original;
+                    @endphp
+              @endif
+              <img src="{{ $image_cover  ?? "http://pasirrentcar.com/admin/img/vehicleimages/avanza.png" }}" alt="" class="img-fluid" />
+
              </div>
 
              <h2 class="entry-title">
-               title
+               {{$data->title}}
              </h2>
 
              <div class="entry-meta">
@@ -28,38 +40,16 @@
                </ul>
              </div>
 
-             <div v-html="state.car.content" class="entry-content"></div>
+             <div v-html="state.car.content" class="entry-content">
+               {!! $data->content !!}
+             </div>
            </article>
            <!-- End blog entry -->
-
-           <div class="blog-author d-flex align-items-center">
-             <!-- <img -->
-             <!-- src="assets/img/blog/blog-author.jpg" class="rounded-circle -->
-             <!-- float-left" alt="" /> -->
-             <div>
-               <h4>PASIR RENTCAR</h4>
-               <div class="social-links">
-                 <a href="https://twitters.com/#"
-                   ><i class="bi bi-twitter"></i
-                 ></a>
-                 <a href="https://facebook.com/#"
-                   ><i class="bi bi-facebook"></i
-                 ></a>
-                 <a href="https://instagram.com/#"
-                   ><i class="biu bi-instagram"></i
-                 ></a>
-               </div>
-               <p>
-                 {!! $data->content ?? null !!}.
-               </p>
-             </div>
-           </div>
-           <!-- End blog author bio -->
          </div>
-         <!-- End blog entries list -->
+
 
          <div class="col-lg-4">
-           <div class="sidebar">
+           <div class="sidebar recentpost">
              @component('page.client.components.recentpost')
                  
              @endcomponent
@@ -73,3 +63,27 @@
    </section>
 
 @endsection
+
+@push('script')
+<script>
+  let postError = 0 
+
+  function getRecentPost(){
+    console.log("fetching data");
+    axios.get(`{{url("/api/car/show/recent-post")}}`).then(function(response) {
+          console.log(response)
+          $('.recentpost').html(response.data)
+          }).catch(function(error){
+            carError++
+            if (carError > 2){
+              console.log("failed fetching data car")
+            }
+          })
+  }
+
+  $(document).ready(function() {
+    // stuff here...      
+    getRecentPost()
+  });
+</script> 
+@endpush

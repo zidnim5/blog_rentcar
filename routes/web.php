@@ -4,7 +4,7 @@ Route::get('/admin/login', 'Auth\LoginController@loginRedirect');
 
 Route::get('/', 'HomeController@index');
 Route::get('/car', 'CarController@index');
-Route::get('/car/detail', 'CarController@detail');
+Route::get('/car/{slug}', 'CarController@detail');
 
 Route::get('/galery', 'GaleryController@index');
 Route::get('/galery/detail', 'GaleryController@detail');
