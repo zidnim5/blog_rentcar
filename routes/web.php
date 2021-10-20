@@ -1,6 +1,9 @@
 <?php
 
 Route::get('/admin/login', 'Auth\LoginController@loginRedirect');
+Route::get('/home', function(){
+    return redirect('/');
+});
 
 Route::get('/', 'HomeController@index');
 Route::get('/car', 'CarController@index');
