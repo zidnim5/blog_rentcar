@@ -20,6 +20,7 @@ return [
     'fb' => env('APP_FB', 'https://google.com'),
     'tw' => env('APP_TW', 'https://google.com'),
     'insta' => env('APP_INSTA', 'https://google.com'),
+    'maps' => env('APP_MAPS', 'https://google.com'),
 
     /*
     |--------------------------------------------------------------------------

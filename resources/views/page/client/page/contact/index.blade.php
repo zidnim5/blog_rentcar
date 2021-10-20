@@ -21,28 +21,28 @@
                <div class="info-box">
                  <i class="bx bx-map"></i>
                  <h3>Our Address</h3>
-                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, quo doloribus, natus quae magni quidem qui maiores soluta atque corrupti commodi a labore beatae fugiat autem, accusantium neque ipsum tempore?</p>
+                 <p> {!!config('app.address')!!}</p>
                </div>
              </div>
              <div class="col-md-6">
                <div class="info-box mt-4">
                  <i class="bx bx-envelope"></i>
                  <h3>Email Us</h3>
-                 <p>pasirrentcae@gmail.com</p>
+                 <p>{{config('app.email')}}</p>
                </div>
              </div>
              <div class="col-md-6">
                <div class="info-box mt-4">
                  <i class="bx bx-phone-call"></i>
                  <h3>Call Us</h3>
-                 <p>09585592</p>
+                 <p>{{config('app.phone')}}</p>
                </div>
              </div>
            </div>
          </div>
  
          <div class="col-lg-6">
-           mapsss
+           {!!config('app.maps')!!}
          </div>
        </div>
      </div>
