@@ -58,13 +58,13 @@
          </div>
        </div>
        <div class="social-links text-center text-md-end pt-3 pt-md-0">
-         <a href="{{config('app.tw')}}" class="twitter"
+         <a href="{{config('app.tw')}}" target="_blank" class="twitter"
            ><i class="bx bxl-twitter"></i
          ></a>
-         <a href="{{config('app.fb')}}" class="facebook"
+         <a href="{{config('app.fb')}}" target="_blank" class="facebook"
            ><i class="bx bxl-facebook"></i
          ></a>
-         <a href="{{config('app.insta')}}" class="instagram"
+         <a href="{{config('app.insta')}}" target="_blank" class="instagram"
            ><i class="bx bxl-instagram"></i
          ></a>
        </div>

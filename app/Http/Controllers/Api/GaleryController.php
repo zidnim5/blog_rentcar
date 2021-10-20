@@ -11,9 +11,9 @@ class GaleryController extends Controller
 {
     public function index(Request $req) {
         $data = GaleryModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 9);
+        $type = 'galery';
 
-        $base_url = config('app.url').'/car/detail';
-        $view = view('page.client.components.gridcard', compact('data','base_url'));
+        $view = view('page.client.components.gridcard', compact('data', 'type'));
         
         return $view;
     }

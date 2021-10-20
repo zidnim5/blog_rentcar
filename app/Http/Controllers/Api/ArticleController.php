@@ -14,9 +14,10 @@ class ArticleController extends Controller
         $data = ArticleModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 10);
 
         $base_url = config('app.url').'/car/';
+        $type = 'article';
         
         if(!isset($req->recentpost)){
-            $view = view('page.client.components.gridcard', compact('data','base_url'));
+            $view = view('page.client.components.gridcard', compact('data','base_url', 'type'));
         }else{
             $view = view('page.client.components.recentpost', compact('data','base_url'));
         }

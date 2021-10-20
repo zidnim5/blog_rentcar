@@ -28,9 +28,9 @@
                     $image_cover = null;   
                @endphp
                @inject('urlgen', '\App\Http\Controllers\Injection\MediaService')
-               @if (isset($item_data->getMedia('article')[0]))
+               @if (isset($item_data->getMedia($type)[0]))
                     @php
-                         $original = $urlgen->UrlGenerator('article',$item_data->getMedia('article')[0]->getUrl());
+                         $original = $urlgen->UrlGenerator($type,$item_data->getMedia($type)[0]->getUrl());
                          $image_cover = config('app.base_url').'/'.$original;
                     @endphp
                @endif

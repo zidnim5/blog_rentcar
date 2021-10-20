@@ -2,7 +2,7 @@
 
 Route::get('/admin/login', 'Auth\LoginController@loginRedirect');
 Route::get('/home', function(){
-    return redirect('/');
+    return redirect('/admin/home');
 });
 
 Route::get('/', 'HomeController@index');
