@@ -9,7 +9,7 @@
 <section id="portfolio" class="portfolio" style="margin-top: 100px;">
   
   <div class="section-title">
-    <h2>Car</h2>
+    <h2>@lang('car.car')</h2>
   </div>
   <div class="section-body car-listing" style="margin-top: -30px;"> 
         @component('page.client.components.gridcard')

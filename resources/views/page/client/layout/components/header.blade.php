@@ -7,9 +7,9 @@
        <nav id="navbar" class="navbar order-last order-lg-0">
          <ul>
            <li><a class="nav-link" active-class="active" href="/">Home</a></li>
-           <li><a class="nav-link" active-class="active" href='/car'>Car</a></li>
-           <li><a class="nav-link" active-class="active" href='/galery'>Galery</a></li>
-           <li><a class="nav-link" active-class="active" href="/contact">Contact</a></li>
+           <li><a class="nav-link" active-class="active" href='/car'>@lang('dashboard.car')</a></li>
+           <li><a class="nav-link" active-class="active" href='/galery'>@lang('dashboard.galery')</a></li>
+           <li><a class="nav-link" active-class="active" href="/contact">@lang('dashboard.contact')</a></li>
          </ul>
          <i class="bi bi-list mobile-nav-toggle"></i>
        </nav><!-- .navbar -->

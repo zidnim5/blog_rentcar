@@ -38,7 +38,7 @@
             <div class="portfolio-info">
               <h4>{{ $item_data->title }}</h4>
               <div class="portfolio-links">
-                <a href="{{ $base_url }}{{ $item_data->slug }}" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="@if(isset($base_url)){{ $base_url }}{{ $item_data->slug }}@else # @endif" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>

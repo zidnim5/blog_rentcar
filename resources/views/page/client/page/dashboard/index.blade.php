@@ -12,7 +12,7 @@
      <section id="portfolio" class="portfolio" style="margin-top: 50px;">
 
         <div class="section-title">
-          <h2>Car</h2>
+          <h2>@lang('dashboard.car')</h2>
           <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
         </div>
         <div class="car-listing" style="margin-top: -30px;">
@@ -29,7 +29,7 @@
        <div class="container" data-aos="fade-up">
  
          <div class="section-title">
-           <h2>Services</h2>
+           <h2>@lang('dashboard.services')</h2>
            <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
          </div>
  
@@ -87,7 +87,7 @@
        <div class="container" data-aos="fade-up">
  
          <div class="section-title">
-           <h2>Galery</h2>
+           <h2>@lang('dashboard.galery')</h2>
            <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
          </div>
 

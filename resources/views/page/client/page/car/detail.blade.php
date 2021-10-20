@@ -49,7 +49,7 @@
 
 
          <div class="col-lg-4">
-           <div class="sidebar recentpost">
+           <div class="sidebar recentpost" style="margin-left: 0px;">
              @component('page.client.components.recentpost')
                  
              @endcomponent

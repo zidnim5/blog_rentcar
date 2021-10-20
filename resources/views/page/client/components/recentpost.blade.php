@@ -12,7 +12,7 @@
 --}}
 
 @if(isset($data))
-<h3 class="sidebar-title">Recent Posts</h3>
+<h3 class="sidebar-title">@lang('car.recent_post')</h3>
 <div class="sidebar-item recent-posts mt-3">
      @foreach($data as $item_data)
      <div class="post-item clearfix">

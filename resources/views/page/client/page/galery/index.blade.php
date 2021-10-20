@@ -10,7 +10,7 @@
 <section id="portfolio" class="portfolio">
      <div class="container" style="margin-top:50px;" data-aos="fade-up">
        <div class="section-title">
-         <h2>Galery</h2>
+         <h2>@lang('galery.galery')</h2>
        </div>
      
        <div
