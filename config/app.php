@@ -14,6 +14,12 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'address' => env('APP_ADDRESS', 'your address here'),
+    'email' => env('APP_EMAIL', 'email@gmail.com'),
+    'phone' => env('APP_PHONE', '085xxxxxx'),
+    'fb' => env('APP_FB', 'https://google.com'),
+    'tw' => env('APP_TW', 'https://google.com'),
+    'insta' => env('APP_INSTA', 'https://google.com'),
 
     /*
     |--------------------------------------------------------------------------

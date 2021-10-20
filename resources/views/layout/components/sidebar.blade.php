@@ -55,14 +55,14 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('contact.index') }}" class="nav-link @yield('active-contact')">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
                             @lang('main.contact')
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <hr style="border-color:#5a5656">
                 </li>

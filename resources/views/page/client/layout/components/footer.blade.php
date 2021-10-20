@@ -3,13 +3,12 @@
        <div class="container">
          <div class="row">
            <div class="col-lg-3 col-md-6 footer-contact">
-             <h3>PASIR RENTCAR<span>.</span></h3>
+             <h3>{{config('app.name')}}<span>.</span></h3>
              <p>
-               Desa Pasir Kulon Rt 2/2 <br />
-               Purwokerto, 53161<br />
-               Indonesia <br /><br />
-               <strong>Phone:</strong> 0857574827003<br />
-               <strong>Email:</strong> cs@passirentcar.com<br />
+               {!! config('app.address') !!}
+               <br>
+               <strong>Phone:</strong> {{config('app.phone')}}<br />
+               <strong>Email:</strong> {{config('app.email')}}<br />
              </p>
            </div>
  
@@ -59,20 +58,20 @@
          </div>
        </div>
        <div class="social-links text-center text-md-end pt-3 pt-md-0">
-         <a :href="state.social_media.twitter" class="twitter"
+         <a href="{{config('app.tw')}}" class="twitter"
            ><i class="bx bxl-twitter"></i
          ></a>
-         <a :href="state.social_media.facebook" class="facebook"
+         <a href="{{config('app.fb')}}" class="facebook"
            ><i class="bx bxl-facebook"></i
          ></a>
-         <a :href="state.social_media.instagram" class="instagram"
+         <a href="{{config('app.insta')}}" class="instagram"
            ><i class="bx bxl-instagram"></i
          ></a>
        </div>
      </div>
  
      <a
-       href="'https://api.whatsapp.com/send?phone=085747767270&text=Halo%20admin'"
+       href="'https://api.whatsapp.com/send?phone={{config('app.phone')}}&text=Halo%20admin'"
        class="wa"
        target="_blank"
      >
