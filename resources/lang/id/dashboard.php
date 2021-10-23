@@ -13,8 +13,9 @@ return [
     |
     */
 
-    'car' => 'Mobil',
-    'about_us' => 'Tentang Kami',
+   'choose' => 'Pilih',
+   'car' => 'Unit',
+   'about_us' => 'Tentang Kami',
     'contact' => 'Kontak',
     'services' => 'Layanan',
     'galery' => 'Galeri',

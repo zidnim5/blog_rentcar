@@ -8,11 +8,38 @@
 
 </section>
 
+     <!-- ======= Services Section ======= -->
+     <section id="services" class="services  mt-4">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <img src="{{ asset('assets/mobil/service-others.png') }}" alt="" srcset="">
+          {{-- <h2>@lang('dashboard.services')</h2> --}}
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
+        </div>
+
+        <div class="row">
+          <div class="col-md-8 offset-md-2 text-center" style="line-height: 30px;">
+           <strong>Pasir Rentcar</strong> merupakan salah satu diantara Penyedia Jasa Transportasi di Purwokerto komplit plit Sopir + Bensin, Kami memperhatikan apapun yang akan membuat anda nyaman dan selalu berusaha memuaskan Anda ketika menggunakan Jasa Rental Mobil Purwokerto termurah dari kami,  kami juga siap menghadirkan rentalan sesuai kebutuhan anda dengan menyediakan berPasir rentcarai jenis kendaraan sesuai kebutuhan.
+           <br>
+           <br>
+           Selain memberi layanan penawaran rental mobil purwokerto termurah, kami juga berusaha memberikan armada terbaik untuk kepuasan anda, salah satunya dengan selalu menjaga kebersihan mobil luar dalam sehingga terbebas dari bau yang tidak di inginkan seperti  bau asap rokok dan lain-lain, kami juga secara rutin mengecek armada yang digunakan selain itu sopir yang bertugas membawa armada kami adalah sopir resmi sudah mempunyai jam terbang tinggi serta sudah lulus edukasi agar selalu mengutamakan keselamatan dan kepuasan anda  dalam setiap kali bertugas di banyak perjalanan.
+           <br>
+           <br>
+           supir yang bertugas sudah berpengalaman, berdedikasi, berpendidikan, punya lisensi, aman,  Sopir yang profesionalis tentu saja tidak cukup di dapat daripada keterampilan atau sertifikasi, dalam hal ini SIM-nya. Sopir akan mengemudikan mobil dengan menepati kaidah-kaidah resmi perlalulintasan yang berlaku.
+           <br>
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+ 
      <!-- ======= Car blog Section ======= -->
      <section id="portfolio" class="portfolio" style="margin-top: 50px;">
 
         <div class="section-title">
-          <h2>@lang('dashboard.car')</h2>
+          <h2>@lang('dashboard.choose') @lang('dashboard.car') !</h2>
           <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
         </div>
         <div class="car-listing" style="margin-top: -30px;">
@@ -28,59 +55,71 @@
      <section id="services" class="services section-bg ">
        <div class="container" data-aos="fade-up">
  
-         <div class="section-title">
+         {{-- <div class="section-title">
+           <img src="{{ asset('assets/mobil/service.png') }}" alt="" srcset="">
            <h2>@lang('dashboard.services')</h2>
-           <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> 
          </div>
  
          <div class="row">
-           <div class="col-md-6">
-             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-               <i class="bi bi-briefcase"></i>
-               <h4><a href="#">Lorem Ipsum</a></h4>
-               <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-             </div>
+           <div class="col-md-8 offset-md-2 text-left">
+            Pasir rentcar merupakan salah satu diantara Penyedia Jasa Transportasi di Purwokerto komplit plit Sopir + Bensin, Kami memperhatikan apapun yang akan membuat anda nyaman dan selalu berusaha memuaskan Anda ketika menggunakan Jasa Rental Mobil Purwokerto termurah dari kami,  kami juga siap menghadirkan rentalan sesuai kebutuhan anda dengan menyediakan berPasir rentcarai jenis kendaraan sesuai kebutuhan.
+            <br>
+            <br>
+            Selain memberi layanan penawaran rental mobil purwokerto termurah, kami juga berusaha memberikan armada terbaik untuk kepuasan anda, salah satunya dengan selalu menjaga kebersihan mobil luar dalam sehingga terbebas dari bau yang tidak di inginkan seperti  bau asap rokok dan lain-lain, kami juga secara rutin mengecek armada yang digunakan selain itu sopir yang bertugas membawa armada kami adalah sopir resmi sudah mempunyai jam terbang tinggi serta sudah lulus edukasi agar selalu mengutamakan keselamatan dan kepuasan anda  dalam setiap kali bertugas di banyak perjalanan.
+            <br>
+            <br>
+            supir yang bertugas sudah berpengalaman, berdedikasi, berpendidikan, punya lisensi, aman,  Sopir yang profesionalis tentu saja tidak cukup di dapat daripada keterampilan atau sertifikasi, dalam hal ini SIM-nya. Sopir akan mengemudikan mobil dengan menepati kaidah-kaidah resmi perlalulintasan yang berlaku.
+            <br>
            </div>
-           <div class="col-md-6 mt-4 mt-md-0">
-             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-               <i class="bi bi-card-checklist"></i>
-               <h4><a href="#">Dolor Sitema</a></h4>
-               <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-             </div>
-           </div>
-           <div class="col-md-6 mt-4 mt-md-0">
-             <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-               <i class="bi bi-bar-chart"></i>
-               <h4><a href="#">Sed ut perspiciatis</a></h4>
-               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-             </div>
-           </div>
-           <div class="col-md-6 mt-4 mt-md-0">
-             <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-               <i class="bi bi-binoculars"></i>
-               <h4><a href="#">Nemo Enim</a></h4>
-               <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-             </div>
-           </div>
-           <div class="col-md-6 mt-4 mt-md-0">
-             <div class="icon-box" data-aos="fade-up" data-aos-delay="500">
-               <i class="bi bi-brightness-high"></i>
-               <h4><a href="#">Magni Dolore</a></h4>
-               <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-             </div>
-           </div>
-           <div class="col-md-6 mt-4 mt-md-0">
-             <div class="icon-box" data-aos="fade-up" data-aos-delay="600">
-               <i class="bi bi-calendar4-week"></i>
-               <h4><a href="#">Eiusmod Tempor</a></h4>
-               <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-             </div>
            </div>
          </div>
- 
-       </div>
+
+ --}}
+
+
+ <div class="section-title">
+  <h2>@lang('dashboard.services')</h2>
+  <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+      {{-- <i class="bi bi-briefcase"></i> --}}
+      <h4><a href="#">Rental Lepas Kunci</a></h4>
+      <p>Rental mobil tanpa pengemudi ( Self Driver )</p>
+    </div>
+  </div>
+  <div class="col-md-6 mt-4 mt-md-0">
+    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+      {{-- <i class="bi bi-card-checklist"></i> --}}
+      <h4><a href="#">Rental + Supir</a></h4>
+      <p>Konsultasikan perjalanan anda dengan supir terbaik dari kami</p>
+    </div>
+  </div>
+  <div class="col-md-6 mt-4 mt-md-0">
+    <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+      {{-- <i class="bi bi-bar-chart"></i> --}}
+      <h4><a href="#">Perjalanan Wisata</a></h4>
+      <p>Rencanakan liburan hebat anda bersama kami. Kami menyediakan paket paket wisata ternyaman untuk anda dan keluarga anda.</p>
+    </div>
+  </div>
+  <div class="col-md-6 mt-4 mt-md-0">
+    <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+      {{-- <i class="bi bi-binoculars"></i> --}}
+      <h4><a href="#">Antar Jemput</a></h4>
+      <p>Kami siap membantu anda yang sedang membutuhkan jasa antar jemput ( Drop off / Pick up )</p>
+    </div>
+  </div>
+
+    <div class="col-md-12 text-center">
+      <div class="wrap">
+        <button class="button"><i class="fa fa-whatsapp fa-2x text-white"></i></button>
+      </div>
+    </div>
      </section><!-- End Services Section -->
- 
+
      
      <!-- ======= Galery Section ======= -->
      <section id="portfolio" class="portfolio">
@@ -98,6 +137,9 @@
          </div>
  
        </div>
+
+
+
      </section><!-- End Portfolio Section -->
 @endsection
 

@@ -13,7 +13,7 @@ return [
     |
     */
 
-   'car' => 'Mobil',
+   'car' => 'Unit',
    'recent_post' => 'Postingan Terbaru',
 
 ];
