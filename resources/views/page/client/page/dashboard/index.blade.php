@@ -55,27 +55,6 @@
      <section id="services" class="services section-bg ">
        <div class="container" data-aos="fade-up">
  
-         {{-- <div class="section-title">
-           <img src="{{ asset('assets/mobil/service.png') }}" alt="" srcset="">
-           <h2>@lang('dashboard.services')</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> 
-         </div>
- 
-         <div class="row">
-           <div class="col-md-8 offset-md-2 text-left">
-            Pasir rentcar merupakan salah satu diantara Penyedia Jasa Transportasi di Purwokerto komplit plit Sopir + Bensin, Kami memperhatikan apapun yang akan membuat anda nyaman dan selalu berusaha memuaskan Anda ketika menggunakan Jasa Rental Mobil Purwokerto termurah dari kami,  kami juga siap menghadirkan rentalan sesuai kebutuhan anda dengan menyediakan berPasir rentcarai jenis kendaraan sesuai kebutuhan.
-            <br>
-            <br>
-            Selain memberi layanan penawaran rental mobil purwokerto termurah, kami juga berusaha memberikan armada terbaik untuk kepuasan anda, salah satunya dengan selalu menjaga kebersihan mobil luar dalam sehingga terbebas dari bau yang tidak di inginkan seperti  bau asap rokok dan lain-lain, kami juga secara rutin mengecek armada yang digunakan selain itu sopir yang bertugas membawa armada kami adalah sopir resmi sudah mempunyai jam terbang tinggi serta sudah lulus edukasi agar selalu mengutamakan keselamatan dan kepuasan anda  dalam setiap kali bertugas di banyak perjalanan.
-            <br>
-            <br>
-            supir yang bertugas sudah berpengalaman, berdedikasi, berpendidikan, punya lisensi, aman,  Sopir yang profesionalis tentu saja tidak cukup di dapat daripada keterampilan atau sertifikasi, dalam hal ini SIM-nya. Sopir akan mengemudikan mobil dengan menepati kaidah-kaidah resmi perlalulintasan yang berlaku.
-            <br>
-           </div>
-           </div>
-         </div>
-
- --}}
 
 
  <div class="section-title">
@@ -120,6 +99,7 @@
     </div>
      </section><!-- End Services Section -->
 
+ 
      
      <!-- ======= Galery Section ======= -->
      <section id="portfolio" class="portfolio">
@@ -141,6 +121,37 @@
 
 
      </section><!-- End Portfolio Section -->
+
+
+     <!-- ======= Services Section ======= -->
+     <section id="services" class="services  mt-4">
+      <div class="container" data-aos="fade-up">
+
+        
+         <div class="section-title">
+           <img src="{{ asset('assets/mobil/service.png') }}" alt="" srcset="">
+           <h2>@lang('dashboard.about_us')</h2>
+            {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>  --}}
+         </div>
+ 
+         <div class="row">
+           <div class="col-md-8 offset-md-2 text-left" style="line-height: 30px;">
+            <strong>Pasir Rentcar</strong>  merupakan perusahaan yang Bergerak di Bidang Jasa Transportasi Purwokerto Dengan Kantor Pusat di Purwokerto. Kami berusaha memberikan armada terbaik untuk kepuasan Anda selaku pengguna rental serta untuk kenyamanan Anda dalam perjalanan sewa dengan armada terbaik dan terbaru yang selalu dicek kondisinya setiap saat. Selain itu sopir yang bertugas membawa armada kami adalah sopir resmi dan sudah mempunyai jam tinggi serta berpengalaman dalam melakukan banyak perjalanan.
+            <br>
+            <br>
+            Apapun pilihan jenis mobil yang Anda butuhkan kami sediakan. Pasir Rentcar Purwokerto menyediakan sopir berpengalaman, berdedikasi, berpendidikan, punya lisensi, aman, dan memberikan kenyamanan. Sopir yang profesionalis tentu saja tidak cukup di dapat daripada keterampilan atau sertifikasi, dalam hal ini SIM-nya. Sopir akan mengemudikan mobil dengan menepati kaidah-kaidah resmi perlalulintasan yang berlaku.
+            <br>
+           </div>
+
+           </div>
+         </div>
+         
+    </section><!-- End Services Section -->
+    <div class="row mt-3">
+      <div class="col-lg-12" style="height: 350px;">
+        {!!config('app.maps')!!}
+       </div>
+    </div>
 @endsection
 
 @push('script')

@@ -12,7 +12,6 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
    'choose' => 'Pilih',
    'car' => 'Unit',
    'about_us' => 'Tentang Kami',
