@@ -1,0 +1,813 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.7
+-- Dumped by pg_dump version 13.4
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: article; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.article (
+    id bigint NOT NULL,
+    slug character varying(255) NOT NULL,
+    title character varying(255) NOT NULL,
+    content text NOT NULL,
+    view integer DEFAULT 0 NOT NULL,
+    deleted_at timestamp(0) without time zone,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.article OWNER TO pasirren_rentcar;
+
+--
+-- Name: article_id_seq; Type: SEQUENCE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE SEQUENCE public.article_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.article_id_seq OWNER TO pasirren_rentcar;
+
+--
+-- Name: article_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER SEQUENCE public.article_id_seq OWNED BY public.article.id;
+
+
+--
+-- Name: contact; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.contact (
+    id bigint NOT NULL,
+    number character varying(255) NOT NULL,
+    address text NOT NULL,
+    email character varying(255) NOT NULL,
+    maps text NOT NULL,
+    social_media json,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.contact OWNER TO pasirren_rentcar;
+
+--
+-- Name: contact_id_seq; Type: SEQUENCE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE SEQUENCE public.contact_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.contact_id_seq OWNER TO pasirren_rentcar;
+
+--
+-- Name: contact_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER SEQUENCE public.contact_id_seq OWNED BY public.contact.id;
+
+
+--
+-- Name: galery; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.galery (
+    id bigint NOT NULL,
+    slug character varying(255) NOT NULL,
+    title character varying(255) NOT NULL,
+    "desc" text,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.galery OWNER TO pasirren_rentcar;
+
+--
+-- Name: galery_id_seq; Type: SEQUENCE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE SEQUENCE public.galery_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.galery_id_seq OWNER TO pasirren_rentcar;
+
+--
+-- Name: galery_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER SEQUENCE public.galery_id_seq OWNED BY public.galery.id;
+
+
+--
+-- Name: media; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.media (
+    id integer NOT NULL,
+    model_type character varying(255) NOT NULL,
+    model_id bigint NOT NULL,
+    collection_name character varying(255) NOT NULL,
+    name character varying(255) NOT NULL,
+    file_name character varying(255) NOT NULL,
+    mime_type character varying(255),
+    disk character varying(255) NOT NULL,
+    size integer NOT NULL,
+    manipulations json NOT NULL,
+    custom_properties json NOT NULL,
+    responsive_images json NOT NULL,
+    order_column integer,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.media OWNER TO pasirren_rentcar;
+
+--
+-- Name: media_id_seq; Type: SEQUENCE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE SEQUENCE public.media_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.media_id_seq OWNER TO pasirren_rentcar;
+
+--
+-- Name: media_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER SEQUENCE public.media_id_seq OWNED BY public.media.id;
+
+
+--
+-- Name: migrations; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.migrations (
+    id integer NOT NULL,
+    migration character varying(255) NOT NULL,
+    batch integer NOT NULL
+);
+
+
+ALTER TABLE public.migrations OWNER TO pasirren_rentcar;
+
+--
+-- Name: migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE SEQUENCE public.migrations_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.migrations_id_seq OWNER TO pasirren_rentcar;
+
+--
+-- Name: migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER SEQUENCE public.migrations_id_seq OWNED BY public.migrations.id;
+
+
+--
+-- Name: model_has_permissions; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.model_has_permissions (
+    permission_id bigint NOT NULL,
+    model_type character varying(255) NOT NULL,
+    model_id bigint NOT NULL
+);
+
+
+ALTER TABLE public.model_has_permissions OWNER TO pasirren_rentcar;
+
+--
+-- Name: model_has_roles; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.model_has_roles (
+    role_id bigint NOT NULL,
+    model_type character varying(255) NOT NULL,
+    model_id bigint NOT NULL
+);
+
+
+ALTER TABLE public.model_has_roles OWNER TO pasirren_rentcar;
+
+--
+-- Name: password_resets; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.password_resets (
+    email character varying(255) NOT NULL,
+    token character varying(255) NOT NULL,
+    created_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.password_resets OWNER TO pasirren_rentcar;
+
+--
+-- Name: permissions; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.permissions (
+    id bigint NOT NULL,
+    name character varying(255) NOT NULL,
+    guard_name character varying(255) NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.permissions OWNER TO pasirren_rentcar;
+
+--
+-- Name: permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE SEQUENCE public.permissions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.permissions_id_seq OWNER TO pasirren_rentcar;
+
+--
+-- Name: permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER SEQUENCE public.permissions_id_seq OWNED BY public.permissions.id;
+
+
+--
+-- Name: role_has_permissions; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.role_has_permissions (
+    permission_id bigint NOT NULL,
+    role_id bigint NOT NULL
+);
+
+
+ALTER TABLE public.role_has_permissions OWNER TO pasirren_rentcar;
+
+--
+-- Name: roles; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.roles (
+    id bigint NOT NULL,
+    name character varying(255) NOT NULL,
+    guard_name character varying(255) NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.roles OWNER TO pasirren_rentcar;
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE SEQUENCE public.roles_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.roles_id_seq OWNER TO pasirren_rentcar;
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER SEQUENCE public.roles_id_seq OWNED BY public.roles.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE TABLE public.users (
+    id bigint NOT NULL,
+    name character varying(255) NOT NULL,
+    email character varying(255) NOT NULL,
+    email_verified_at timestamp(0) without time zone,
+    password character varying(255) NOT NULL,
+    remember_token character varying(100),
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.users OWNER TO pasirren_rentcar;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE SEQUENCE public.users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO pasirren_rentcar;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+
+--
+-- Name: article id; Type: DEFAULT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.article ALTER COLUMN id SET DEFAULT nextval('public.article_id_seq'::regclass);
+
+
+--
+-- Name: contact id; Type: DEFAULT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.contact ALTER COLUMN id SET DEFAULT nextval('public.contact_id_seq'::regclass);
+
+
+--
+-- Name: galery id; Type: DEFAULT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.galery ALTER COLUMN id SET DEFAULT nextval('public.galery_id_seq'::regclass);
+
+
+--
+-- Name: media id; Type: DEFAULT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.media ALTER COLUMN id SET DEFAULT nextval('public.media_id_seq'::regclass);
+
+
+--
+-- Name: migrations id; Type: DEFAULT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.migrations ALTER COLUMN id SET DEFAULT nextval('public.migrations_id_seq'::regclass);
+
+
+--
+-- Name: permissions id; Type: DEFAULT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.permissions ALTER COLUMN id SET DEFAULT nextval('public.permissions_id_seq'::regclass);
+
+
+--
+-- Name: roles id; Type: DEFAULT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.roles ALTER COLUMN id SET DEFAULT nextval('public.roles_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Data for Name: article; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.article (id, slug, title, content, view, deleted_at, created_at, updated_at) FROM stdin;
+2	car2	Avanza 2020	<p>car 2 here</p>	0	\N	2021-09-25 10:00:40	2021-10-23 02:46:16
+1	titile	Avanza 2019	<p>example</p>	0	\N	2021-09-25 09:26:36	2021-10-23 02:46:59
+\.
+
+
+--
+-- Data for Name: contact; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.contact (id, number, address, email, maps, social_media, created_at, updated_at) FROM stdin;
+1	028229222	adress here	admin@gmail.com	password	\N	2021-09-25 09:24:31	2021-09-25 09:24:31
+\.
+
+
+--
+-- Data for Name: galery; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.galery (id, slug, title, "desc", created_at, updated_at) FROM stdin;
+1	testing	Testing	\N	2021-10-20 09:40:13	2021-10-20 09:40:13
+\.
+
+
+--
+-- Data for Name: media; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.media (id, model_type, model_id, collection_name, name, file_name, mime_type, disk, size, manipulations, custom_properties, responsive_images, order_column, created_at, updated_at) FROM stdin;
+11	App\\Models\\GaleryModel	1	galery	47c79b22414e95ebdcc76a1ff50489ea	B3Z9mdtYghshZqc8.jpg	image/jpeg	galery	361262	[]	[]	[]	3	2021-10-20 09:40:15	2021-10-20 09:40:15
+14	App\\Models\\ArticleModel	2	article	avanza	A4KDpQZiD3EAIlHX.png	image/png	article	315359	[]	[]	[]	4	2021-10-23 02:46:17	2021-10-23 02:46:17
+15	App\\Models\\ArticleModel	2	article	avanza	kxqxdnmvBjlw7KxZ.png	image/png	article	315359	[]	[]	[]	4	2021-10-23 02:46:17	2021-10-23 02:46:17
+16	App\\Models\\ArticleModel	1	article	avanza	vCVMrn1sofu1R5u5.png	image/png	article	315359	[]	[]	[]	5	2021-10-23 02:47:00	2021-10-23 02:47:00
+\.
+
+
+--
+-- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.migrations (id, migration, batch) FROM stdin;
+1	2014_10_12_000000_create_users_table	1
+2	2014_10_12_100000_create_password_resets_table	1
+3	2020_11_03_200443_create_permission_tables	1
+4	2021_05_04_011902_create_article_table	1
+5	2021_05_04_012327_create_contact_table	1
+6	2021_05_04_012510_create_table_galery_table	1
+7	2021_05_04_020059_create_media_table	1
+\.
+
+
+--
+-- Data for Name: model_has_permissions; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.model_has_permissions (permission_id, model_type, model_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: model_has_roles; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.model_has_roles (role_id, model_type, model_id) FROM stdin;
+1	App\\User	1
+\.
+
+
+--
+-- Data for Name: password_resets; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.password_resets (email, token, created_at) FROM stdin;
+\.
+
+
+--
+-- Data for Name: permissions; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.permissions (id, name, guard_name, created_at, updated_at) FROM stdin;
+1	role-list	web	2021-09-25 09:24:32	2021-09-25 09:24:32
+2	role-create	web	2021-09-25 09:24:34	2021-09-25 09:24:34
+3	role-edit	web	2021-09-25 09:24:35	2021-09-25 09:24:35
+4	role-delete	web	2021-09-25 09:24:37	2021-09-25 09:24:37
+5	user-create	web	2021-09-25 09:24:39	2021-09-25 09:24:39
+6	user-edit	web	2021-09-25 09:24:41	2021-09-25 09:24:41
+7	user-delete	web	2021-09-25 09:24:42	2021-09-25 09:24:42
+8	item_permission-create	web	2021-09-25 09:24:44	2021-09-25 09:24:44
+9	item_permission-edit	web	2021-09-25 09:24:46	2021-09-25 09:24:46
+10	item_permission-delete	web	2021-09-25 09:24:48	2021-09-25 09:24:48
+\.
+
+
+--
+-- Data for Name: role_has_permissions; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.role_has_permissions (permission_id, role_id) FROM stdin;
+1	1
+2	1
+3	1
+4	1
+5	1
+6	1
+7	1
+8	1
+9	1
+10	1
+\.
+
+
+--
+-- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.roles (id, name, guard_name, created_at, updated_at) FROM stdin;
+1	admin	web	2021-09-25 09:24:49	2021-09-25 09:24:49
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: pasirren_rentcar
+--
+
+COPY public.users (id, name, email, email_verified_at, password, remember_token, created_at, updated_at) FROM stdin;
+1	admins	admin@gmail.com	\N	$2y$10$kPgdB6uZbtnqmyHRw5yMCuSV7B0Wwfaxc43Mh41LVU8GmtsVyLRsm	\N	2021-09-25 09:25:15	2021-10-17 06:01:36
+\.
+
+
+--
+-- Name: article_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pasirren_rentcar
+--
+
+SELECT pg_catalog.setval('public.article_id_seq', 3, true);
+
+
+--
+-- Name: contact_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pasirren_rentcar
+--
+
+SELECT pg_catalog.setval('public.contact_id_seq', 1, true);
+
+
+--
+-- Name: galery_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pasirren_rentcar
+--
+
+SELECT pg_catalog.setval('public.galery_id_seq', 2, true);
+
+
+--
+-- Name: media_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pasirren_rentcar
+--
+
+SELECT pg_catalog.setval('public.media_id_seq', 16, true);
+
+
+--
+-- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pasirren_rentcar
+--
+
+SELECT pg_catalog.setval('public.migrations_id_seq', 7, true);
+
+
+--
+-- Name: permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pasirren_rentcar
+--
+
+SELECT pg_catalog.setval('public.permissions_id_seq', 10, true);
+
+
+--
+-- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pasirren_rentcar
+--
+
+SELECT pg_catalog.setval('public.roles_id_seq', 1, true);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pasirren_rentcar
+--
+
+SELECT pg_catalog.setval('public.users_id_seq', 1, true);
+
+
+--
+-- Name: article article_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.article
+    ADD CONSTRAINT article_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: article article_slug_unique; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.article
+    ADD CONSTRAINT article_slug_unique UNIQUE (slug);
+
+
+--
+-- Name: contact contact_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.contact
+    ADD CONSTRAINT contact_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: galery galery_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.galery
+    ADD CONSTRAINT galery_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: galery galery_slug_unique; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.galery
+    ADD CONSTRAINT galery_slug_unique UNIQUE (slug);
+
+
+--
+-- Name: media media_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.media
+    ADD CONSTRAINT media_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: migrations migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.migrations
+    ADD CONSTRAINT migrations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: model_has_permissions model_has_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.model_has_permissions
+    ADD CONSTRAINT model_has_permissions_pkey PRIMARY KEY (permission_id, model_id, model_type);
+
+
+--
+-- Name: model_has_roles model_has_roles_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.model_has_roles
+    ADD CONSTRAINT model_has_roles_pkey PRIMARY KEY (role_id, model_id, model_type);
+
+
+--
+-- Name: permissions permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.permissions
+    ADD CONSTRAINT permissions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: role_has_permissions role_has_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.role_has_permissions
+    ADD CONSTRAINT role_has_permissions_pkey PRIMARY KEY (permission_id, role_id);
+
+
+--
+-- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.roles
+    ADD CONSTRAINT roles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_email_unique; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_email_unique UNIQUE (email);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: media_model_type_model_id_index; Type: INDEX; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE INDEX media_model_type_model_id_index ON public.media USING btree (model_type, model_id);
+
+
+--
+-- Name: model_has_permissions_model_id_model_type_index; Type: INDEX; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE INDEX model_has_permissions_model_id_model_type_index ON public.model_has_permissions USING btree (model_id, model_type);
+
+
+--
+-- Name: model_has_roles_model_id_model_type_index; Type: INDEX; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE INDEX model_has_roles_model_id_model_type_index ON public.model_has_roles USING btree (model_id, model_type);
+
+
+--
+-- Name: password_resets_email_index; Type: INDEX; Schema: public; Owner: pasirren_rentcar
+--
+
+CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
+
+
+--
+-- Name: model_has_permissions model_has_permissions_permission_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.model_has_permissions
+    ADD CONSTRAINT model_has_permissions_permission_id_foreign FOREIGN KEY (permission_id) REFERENCES public.permissions(id) ON DELETE CASCADE;
+
+
+--
+-- Name: model_has_roles model_has_roles_role_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.model_has_roles
+    ADD CONSTRAINT model_has_roles_role_id_foreign FOREIGN KEY (role_id) REFERENCES public.roles(id) ON DELETE CASCADE;
+
+
+--
+-- Name: role_has_permissions role_has_permissions_permission_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.role_has_permissions
+    ADD CONSTRAINT role_has_permissions_permission_id_foreign FOREIGN KEY (permission_id) REFERENCES public.permissions(id) ON DELETE CASCADE;
+
+
+--
+-- Name: role_has_permissions role_has_permissions_role_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: pasirren_rentcar
+--
+
+ALTER TABLE ONLY public.role_has_permissions
+    ADD CONSTRAINT role_has_permissions_role_id_foreign FOREIGN KEY (role_id) REFERENCES public.roles(id) ON DELETE CASCADE;
+
+
+--
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: pasirren_rentcar
+--
+
+REVOKE ALL ON SCHEMA public FROM rdsadmin;
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+GRANT ALL ON SCHEMA public TO pasirren_rentcar;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

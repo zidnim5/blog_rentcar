@@ -30,7 +30,7 @@ active
         <div class="card">
             <div class="card-body login-card-body">
 
-                <form action="{{ url('/profil/update-profil') }}" method="post">
+                <form action="{{ route('profil.update', ['user'=>'user']) }}" method="post">
                     @method('PUT')
                     @csrf
                     <div class="input-group mb-3">
