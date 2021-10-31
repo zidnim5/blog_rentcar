@@ -160,7 +160,7 @@
     let galeryError = 0 
 
     function getCar(){
-      axios.get(`{{url("/api/car")}}`).then(function(response) {
+      axios.get(`{{url("/api/car?paginate=3")}}`).then(function(response) {
             console.log(response)
             $('.car-listing').html(response.data)
             }).catch(function(error){
@@ -172,7 +172,7 @@
     }
 
     function getGalery(){
-      axios.get(`{{url("/api/galery")}}`).then(function(response) {
+      axios.get(`{{url("/api/galery?paginate=3")}}`).then(function(response) {
         console.log(response)
         $('.galery-listing').html(response.data)
             }).catch(function(error){

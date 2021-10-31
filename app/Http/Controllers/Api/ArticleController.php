@@ -11,7 +11,7 @@ class ArticleController extends Controller
 {
 
     public function index(Request $req) {
-        $data = ArticleModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 10);
+        $data = ArticleModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 15);
 
         $base_url = config('app.url').'/car/';
         $type = 'article';

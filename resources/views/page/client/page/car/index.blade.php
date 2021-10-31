@@ -27,11 +27,24 @@
   <script>
     let carError = 0 
     let galeryError = 0 
+    let last = false;
+    let page = 1;
+    var is_loading = true;
 
     function getCar(){
-      axios.get(`{{url("/api/car")}}`).then(function(response) {
-            console.log(response)
-            $('.car-listing').html(response.data)
+      is_loading = true;
+      axios.get(`{{url('/api/car?page=${page}')}}`).then(function(response) {
+            if (page < 2){
+              $('.car-listing').html(response.data)
+            }else{
+              $('.car-listing').append(response.data)
+            }
+            if (page > 1){
+              last = true;
+            }
+            page++;
+            is_loading = false;
+
             }).catch(function(error){
               carError++
               if (carError > 2){
@@ -42,6 +55,16 @@
 
     $(document).ready(function() {
       // stuff here...      
+      $(window).scroll(function() {
+            if(!last){
+              if(!is_loading){
+                if($(window).scrollTop() + $(window).height() >= $(document).height() - 150) {
+                  console.log(`Fetching data...${page}`);
+                  getCar();
+                }
+              }
+            }
+        });
       getCar()
     });
 

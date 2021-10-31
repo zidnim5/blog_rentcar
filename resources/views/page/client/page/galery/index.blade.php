@@ -34,21 +34,45 @@
   <script>
     let carError = 0 
     let galeryError = 0 
+    let page = 1;
+    var is_loading = false;
+    let last = false;
 
     function getGalery(){
-      axios.get(`{{url("/api/galery")}}`).then(function(response) {
-        console.log(response)
-        $('.galery-listing').html(response.data)
-            }).catch(function(error){
-              galeryError++
-              if (galeryError > 2) {
-                console.log("failed fetching data galery")
-              }
-            })
+      is_loading = true;
+      axios.get(`{{url("/api/galery?page=${page}")}}`).then(function(response) {
+          if (page < 2){
+              $('.galery-listing').html(response.data)
+            }else{
+              $('.galery-listing').append(response.data)
+            }
+
+            if (page > 1){
+              last = true;
+            }
+
+            page++;
+            is_loading = false;
+        }).catch(function(error){
+          galeryError++
+          if (galeryError > 2) {
+            console.log("failed fetching data galery")
+          }
+        });
     }
 
     $(document).ready(function() {
       // stuff here...      
+      $(window).scroll(function() {
+            if(!last){
+              if(!is_loading){
+                if($(window).scrollTop() + $(window).height() >= $(document).height() - 150) {
+                  console.log(`Fetching data...${page}`);
+                  getGalery();
+                }
+              }
+            }
+        });
       getGalery()
     });
 

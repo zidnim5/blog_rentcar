@@ -10,7 +10,7 @@ use App\Http\Resources\GaleryResource;
 class GaleryController extends Controller
 {
     public function index(Request $req) {
-        $data = GaleryModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 9);
+        $data = GaleryModel::orderBy('id','DESC')->paginate($req->paginate ? $req->paginate : 15);
         $type = 'galery';
 
         $view = view('page.client.components.gridcard', compact('data', 'type'));
