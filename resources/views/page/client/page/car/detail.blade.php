@@ -70,7 +70,7 @@
 
   function getRecentPost(){
     console.log("fetching data");
-    axios.get(`{{url("/api/car/show/recent-post")}}`).then(function(response) {
+    axios.get(`{{url("/api/car/show/recent-post?paginate=5")}}`).then(function(response) {
           console.log(response)
           $('.recentpost').html(response.data)
           }).catch(function(error){
