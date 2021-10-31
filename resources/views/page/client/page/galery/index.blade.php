@@ -40,7 +40,7 @@
 
     function getGalery(){
       is_loading = true;
-      axios.get(`{{url("/api/galery?page=${page}")}}`).then(function(response) {
+      axios.get(`{{url('/api/galery?page=${page}')}}`).then(function(response) {
           if (page < 2){
               $('.galery-listing').html(response.data)
             }else{
