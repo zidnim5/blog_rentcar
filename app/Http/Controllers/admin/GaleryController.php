@@ -83,8 +83,8 @@ class GaleryController extends Controller
         $asset = '';
         if (isset($data->getMedia('galery')[0])) {
             $galery_origin = $this->UrlGenerator('galery',$data->getMedia('galery')[0]->getUrl());
+            $asset = config('app.base_url').'/'.$galery_origin;
         }
-        $asset = config('app.base_url').'/'.$galery_origin;
         return view('page.galery.show',compact('data', 'asset'));
     }
 

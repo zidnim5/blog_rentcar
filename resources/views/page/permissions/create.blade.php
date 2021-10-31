@@ -34,7 +34,7 @@ active
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <<form action="{{ route('permission.store') }}" method="post">
+                <form action="{{ route('permission.store') }}" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="">Permission Name</label>
