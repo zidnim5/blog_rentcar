@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ArticleModel;
 use Alert;
+use App\Http\Controllers\Traits\RandomString;
 
 class ArticleController extends Controller
 {
 
     use MediaServiceTrait;
+    use RandomString;
 
     public function __construct(){
         $this->middleware('permission:user-create|user-edit|user-delete|role-delete', ['only' => ['index','store']]);
@@ -60,7 +62,7 @@ class ArticleController extends Controller
 
         $data = new ArticleModel;
         $data->title = $request->title;
-        $data->slug = $slug;
+        $data->slug = $slug."_".$this->generateUid(4);
         $data->content = $request->content;
 
         $data->save();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Models\GaleryModel;
 use Alert;
+use App\Http\Controllers\Traits\RandomString;
 use App\Http\Controllers\Traits\MediaServiceTrait;
 use App\Http\Controllers\Controller;
 
@@ -12,6 +13,7 @@ class GaleryController extends Controller
 {
 
     use MediaServiceTrait;
+    use RandomString;
 
     public function __construct(){
         $this->middleware('permission:user-create|user-edit|user-delete|role-delete', ['only' => ['index','store']]);
@@ -57,7 +59,7 @@ class GaleryController extends Controller
         $slug = str_replace(' ', '-',strtolower($request->title));
 
         $data = new GaleryModel;
-        $data->slug = $slug;
+        $data->slug = $slug."_".$this->generateUid(4);
         $data->title = $request->title;
         // $data->desc = $request->desc;
 
