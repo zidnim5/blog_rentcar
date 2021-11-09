@@ -71,7 +71,7 @@
      </div>
  
      <a
-       href="'https://api.whatsapp.com/send?phone={{config('app.phone')}}&text=Halo%20admin'"
+       href="https://api.whatsapp.com/send?phone={{config('app.phone')}}&text=Halo%20admin"
        class="wa"
        target="_blank"
      >
