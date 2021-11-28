@@ -27,7 +27,7 @@
 
     <div class="login-box">
         <div class="login-logo">
-          <a href="../../index2.html"><b>Admin</b>LTE</a>
+          <a href="../../index2.html"><b>{{strtoupper(config('app.name'))}}</a>
         </div>
 
         @yield('content')

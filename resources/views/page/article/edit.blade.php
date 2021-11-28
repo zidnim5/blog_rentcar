@@ -70,6 +70,17 @@ active
                             </div>
                         </div>
 
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1"
+                                name="is_dashboard" 
+                                @if($data->is_dashboard) checked @endif
+                                >
+                                <label class="custom-control-label" for="customSwitch1">Display to dashboard</label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary btn-block">Update</button>
                         </div>

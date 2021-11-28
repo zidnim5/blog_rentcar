@@ -18,6 +18,7 @@ class CreateTableGaleryTable extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->text('desc')->nullable();
+            $table->boolean('is_dashboard')->default(false);
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ class CreateArticleTable extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->text('content');
+            $table->boolean('is_dashboard')->default(false);
             $table->integer('view')->default(0);
             $table->SoftDeletes();
             $table->timestamps();

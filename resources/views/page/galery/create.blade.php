@@ -62,6 +62,16 @@ active
                                 <input type="file" name="file" class="dropify">
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1"
+                                name="is_dashboard">
+                                <label class="custom-control-label" for="customSwitch1">Display to dashboard</label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary btn-block">Add</button>
                         </div>

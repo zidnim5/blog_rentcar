@@ -48,7 +48,6 @@ class RoleController extends Controller
         return view('roles.create',compact('permission'));
     }
 
-
     /**
      * Store a newly created resource in storage.
      *
@@ -67,6 +66,7 @@ class RoleController extends Controller
 
         return redirect()->route('roles.index');
     }
+
     /**
      * Display the specified resource.
      *
@@ -83,7 +83,6 @@ class RoleController extends Controller
 
         return view('page.roles.show',compact('role','rolePermissions'));
     }
-
 
     /**
      * Show the form for editing the specified resource.

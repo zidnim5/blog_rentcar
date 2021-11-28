@@ -25,6 +25,9 @@ Route::group(['middleware' => ['auth'], 'prefix'=>'admin'], function() {
     Route::resource('permission','admin\PermissionController');
     Route::delete('/roles/permission/{permission}', 'admin\RoleController@revokePermission');
     Route::post('/roles/permission', 'admin\RoleController@assignPermission');
+    // display data to dashboard
+    Route::get('display/article/{id}', 'admin\ArticleController@display');
+    Route::get('display/galery/{id}', 'admin\GaleryController@display');
 });
 
 Auth::routes();

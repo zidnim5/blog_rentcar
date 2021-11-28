@@ -33,7 +33,6 @@ class ArticleController extends Controller
         return view('page.article.index', compact('data'));
     }
 
-
     /**
      * Show the form for creating a new resource.
      *
@@ -43,7 +42,6 @@ class ArticleController extends Controller
     {
         return view('page.article.create');
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -64,6 +62,7 @@ class ArticleController extends Controller
         $data->title = $request->title;
         $data->slug = $slug."_".$this->generateUid(4);
         $data->content = $request->content;
+        $data->is_dashboard =  $request->is_dashboard ? true : false;
 
         $data->save();
 
@@ -74,13 +73,12 @@ class ArticleController extends Controller
                         ->with('success','User created successfully');
     }
 
-
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
+    */
     public function show($id)
     {
         $data = ArticleModel::find($id);
@@ -90,9 +88,8 @@ class ArticleController extends Controller
             
             $asset = config('app.base_url').'/'.$article_original;
         }
-        return view('page.article.show',compact('data', 'asset'));
+        return view('page.article.edit',compact('data', 'asset'));
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -103,7 +100,6 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = ArticleModel::find($id);
-
         return view('page.article.edit',compact('article'));
     }
 
@@ -126,6 +122,7 @@ class ArticleController extends Controller
 
         $data->title = $request->title;
         $data->content = $request->content;
+        $data->is_dashboard =  $request->is_dashboard ? true : false;
 
         $data->save();
 

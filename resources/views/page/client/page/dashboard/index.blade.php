@@ -20,13 +20,13 @@
 
         <div class="row">
           <div class="col-md-8 offset-md-2 text-center" style="line-height: 30px;">
-           <strong>Pasir Rentcar</strong> merupakan salah satu diantara Penyedia Jasa Transportasi di Purwokerto komplit plit Sopir + Bensin, Kami memperhatikan apapun yang akan membuat anda nyaman dan selalu berusaha memuaskan Anda ketika menggunakan Jasa Rental Mobil Purwokerto termurah dari kami,  kami juga siap menghadirkan rentalan sesuai kebutuhan anda dengan menyediakan berPasir rentcarai jenis kendaraan sesuai kebutuhan.
+           <strong>Pasir Rentcar</strong> merupakan salah satu diantara Penyedia Jasa Transportasi di Purwokerto komplit plit Sopir + Bensin, Kami memperhatikan apapun yang akan membuat anda nyaman dan selalu berusaha memuaskan Anda ketika menggunakan Jasa Rental Mobil Purwokerto termurah dari kami,  kami juga siap menghadirkan rentalan sesuai kebutuhan anda dengan menyediakan berbagai jenis kendaraan sesuai kebutuhan.
            <br>
            <br>
-           Selain memberi layanan penawaran rental mobil purwokerto termurah, kami juga berusaha memberikan armada terbaik untuk kepuasan anda, salah satunya dengan selalu menjaga kebersihan mobil luar dalam sehingga terbebas dari bau yang tidak di inginkan seperti  bau asap rokok dan lain-lain, kami juga secara rutin mengecek armada yang digunakan selain itu sopir yang bertugas membawa armada kami adalah sopir resmi sudah mempunyai jam terbang tinggi serta sudah lulus edukasi agar selalu mengutamakan keselamatan dan kepuasan anda  dalam setiap kali bertugas di banyak perjalanan.
+           Selain memberi layanan penawaran rental mobil purwokerto termurah, kami juga berusaha memberikan armada terbaik untuk kepuasan anda, salah satunya dengan selalu menjaga kebersihan mobil luar dalam sehingga terbebas dari bau yang tidak di inginkan seperti  bau asap rokok dan lain-lain, kami juga secara rutin mengecek armada yang digunakan, selain itu sopir yang bertugas membawa armada kami adalah sopir resmi sudah mempunyai jam terbang tinggi serta sudah lulus edukasi agar selalu mengutamakan keselamatan dan kepuasan anda  dalam setiap kali bertugas di banyak perjalanan.
            <br>
            <br>
-           supir yang bertugas sudah berpengalaman, berdedikasi, berpendidikan, punya lisensi, aman,  Sopir yang profesionalis tentu saja tidak cukup di dapat daripada keterampilan atau sertifikasi, dalam hal ini SIM-nya. Sopir akan mengemudikan mobil dengan menepati kaidah-kaidah resmi perlalulintasan yang berlaku.
+           supir yang bertugas sudah berpengalaman, berdedikasi, berpendidikan, punya lisensi, aman,  sopir yang profesional dan sopir yang akan mengemudikan mobil dengan menepati kaidah-kaidah resmi perlalulintasan yang berlaku.
            <br>
           </div>
           </div>
@@ -139,7 +139,7 @@
             <strong>Pasir Rentcar</strong>  merupakan perusahaan yang Bergerak di Bidang Jasa Transportasi Purwokerto Dengan Kantor Pusat di Purwokerto. Kami berusaha memberikan armada terbaik untuk kepuasan Anda selaku pengguna rental serta untuk kenyamanan Anda dalam perjalanan sewa dengan armada terbaik dan terbaru yang selalu dicek kondisinya setiap saat. Selain itu sopir yang bertugas membawa armada kami adalah sopir resmi dan sudah mempunyai jam tinggi serta berpengalaman dalam melakukan banyak perjalanan.
             <br>
             <br>
-            Apapun pilihan jenis mobil yang Anda butuhkan kami sediakan. Pasir Rentcar Purwokerto menyediakan sopir berpengalaman, berdedikasi, berpendidikan, punya lisensi, aman, dan memberikan kenyamanan. Sopir yang profesionalis tentu saja tidak cukup di dapat daripada keterampilan atau sertifikasi, dalam hal ini SIM-nya. Sopir akan mengemudikan mobil dengan menepati kaidah-kaidah resmi perlalulintasan yang berlaku.
+            Apapun pilihan jenis mobil yang Anda butuhkan kami sediakan. Pasir Rentcar Purwokerto menyediakan sopir berpengalaman, berdedikasi, berpendidikan, punya lisensi, aman, dan memberikan kenyamanan. Sopir yang profesionalis tentu saja sopir yang akan menepati kaidah-kaidah resmi perlalulintasan yang berlaku setiap saat.
             <br>
            </div>
 
@@ -160,7 +160,7 @@
     let galeryError = 0 
 
     function getCar(){
-      axios.get(`{{url("/api/car?paginate=3")}}`).then(function(response) {
+      axios.get(`{{url("/api/dashboard/car/display?paginate=3")}}`).then(function(response) {
             console.log(response)
             $('.car-listing').html(response.data)
             }).catch(function(error){
@@ -172,7 +172,7 @@
     }
 
     function getGalery(){
-      axios.get(`{{url("/api/galery?paginate=3")}}`).then(function(response) {
+      axios.get(`{{url("/api/dashboard/galery/display?paginate=3")}}`).then(function(response) {
         console.log(response)
         $('.galery-listing').html(response.data)
             }).catch(function(error){

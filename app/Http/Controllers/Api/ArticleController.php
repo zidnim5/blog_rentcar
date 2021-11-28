@@ -10,6 +10,16 @@ use App\Http\Resources\ArticleResource;
 class ArticleController extends Controller
 {
 
+    public function getDashboard(Request $req){
+        $data = ArticleModel::where('is_dashboard', true)->orderBy('updated_at', 'desc')->paginate($req->paginate ? $req->paginate : 6);
+        
+        $base_url = config('app.url').'/car/';
+        $type = 'article';
+        $view = view('page.client.components.gridcard', compact('data','base_url', 'type'));
+
+        return  $view;
+    }
+
     public function index(Request $req) {
         $data = ArticleModel::orderBy('id','ASC')->paginate($req->paginate ? $req->paginate : 15);
 

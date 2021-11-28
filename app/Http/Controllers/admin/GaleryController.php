@@ -8,6 +8,7 @@ use Alert;
 use App\Http\Controllers\Traits\RandomString;
 use App\Http\Controllers\Traits\MediaServiceTrait;
 use App\Http\Controllers\Controller;
+use Tests\Feature\GaleryTest;
 
 class GaleryController extends Controller
 {
@@ -57,11 +58,11 @@ class GaleryController extends Controller
             'title' => 'required',
         ]);
         $slug = str_replace(' ', '-',strtolower($request->title));
-
+       
         $data = new GaleryModel;
         $data->slug = $slug."_".$this->generateUid(4);
         $data->title = $request->title;
-        // $data->desc = $request->desc;
+        $data->is_dashboard =  $request->is_dashboard ? true : false;
 
         $data->save();
 
@@ -87,7 +88,7 @@ class GaleryController extends Controller
             $galery_origin = $this->UrlGenerator('galery',$data->getMedia('galery')[0]->getUrl());
             $asset = config('app.base_url').'/'.$galery_origin;
         }
-        return view('page.galery.show',compact('data', 'asset'));
+        return view('page.galery.edit',compact('data', 'asset'));
     }
 
 
@@ -121,6 +122,7 @@ class GaleryController extends Controller
         $data = GaleryModel::find($id);
 
         $data->title = $request->title;
+        $data->is_dashboard =  $request->is_dashboard ? true : false;
         // $data->desc = $request->desc;
 
         $data->save();
