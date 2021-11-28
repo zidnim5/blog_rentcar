@@ -48,7 +48,7 @@
 	/* padding: 10px; */
 	}
    
-   a::before {
+   .button::before {
    content: '';
 	border-radius: 1000px;
 	min-width: calc(200px + 8px);
@@ -68,11 +68,11 @@
 	transform: translateY(-6px);
    }
    
-   a:hover::before, button:focus::before {
+   .button:hover::before, .button:focus::before {
 	opacity: 1;
    }
    
-   a::after {
+   .button::after {
 	content: '';
 	width: 30px; height: 30px;
 	border-radius: 100%;
@@ -85,7 +85,7 @@
 	animation: ring 1.5s infinite;
    }
    
-   a:hover::after, a:focus::after {
+   .button:hover::after, .button:focus::after {
 	animation: none;
 	display: none;
    }
