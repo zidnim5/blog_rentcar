@@ -108,9 +108,9 @@ CREATE TABLE public.galery (
     slug character varying(255) NOT NULL,
     title character varying(255) NOT NULL,
     "desc" text,
+    is_dashboard boolean
     created_at timestamp(0) without time zone,
     updated_at timestamp(0) without time zone,
-    is_dashboard boolean
 );
 
 
@@ -441,10 +441,25 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: article; Type: TABLE DATA; Schema: public; Owner: dbmasteruser
 --
 
-COPY public.article (id, slug, title, content, view, deleted_at, created_at, updated_at, is_dashboard) FROM stdin;
-1	titile	Avanza 2019	<p>example</p>	0	\N	2021-09-25 09:26:36	2021-10-23 02:46:59	\N
-2	car2	All New Avanza	<p>Sewa Mobil Mudah,Murah,dan gak ribet diPurwokerto Hanya disini !<br />\r\nBUKA 24JAM<br />\r\nTinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-09-25 10:00:40	2021-10-31 08:46:57	\N
+COPY public.article (id, slug, title, content, view, deleted_at, created_at, updated_at) FROM stdin;
+1	test	All New Avanza	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:17:51	2021-10-31 08:48:47
+2	all-new-xenia_5382	All New Xenia	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:49:33	2021-10-31 08:49:33
+3	innova-reborn_5285	Innova Reborn	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:50:15	2021-10-31 08:50:15
+4	xpander_1457	Xpander	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:50:35	2021-10-31 08:50:35
+5	agya_3034	Agya	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:51:03	2021-10-31 08:51:03
+6	ayla_7988	Ayla	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:51:20	2021-10-31 08:51:20
+7	avanza_6510	Avanza	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:52:01	2021-10-31 08:52:01
+8	xenia_8782	Xenia	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:52:15	2021-10-31 08:52:15
+9	sigra_4207	Sigra	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:52:50	2021-10-31 08:52:50
+10	hiace_3243	HIACE	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:53:10	2021-10-31 08:53:10
+11	luxio_4167	Luxio	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:53:27	2021-10-31 08:53:27
+12	granmax_4940	Granmax	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:53:42	2021-10-31 08:53:42
+13	granmax-pickup_8392	Granmax Pickup	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:54:00	2021-10-31 08:54:00
+14	brio_2135	Brio	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:54:28	2021-10-31 08:54:28
+15	elf-short_2933	Elf Short	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:54:49	2021-10-31 08:54:49
+16	elf-long_1554	Elf Long	<p>Sewa mobil mudah, murah, dan gak ribet di purwokerto hanya disini !</p>\r\n\r\n<p>BUKA 24JAM</p>\r\n\r\n<p>Tinggal Telp/WA aja : ☎📲 082137692840/085647786733..</p>	0	\N	2021-10-31 08:55:05	2021-10-31 08:55:05
 \.
+
 
 
 --
@@ -460,7 +475,19 @@ COPY public.contact (id, number, address, email, maps, social_media, created_at,
 -- Data for Name: galery; Type: TABLE DATA; Schema: public; Owner: dbmasteruser
 --
 
-COPY public.galery (id, slug, title, "desc", created_at, updated_at, is_dashboard) FROM stdin;
+
+COPY public.galery (id, slug, title, "desc", created_at, updated_at) FROM stdin;
+2	rentcar-&-crew	Rentcar & Crew	\N	2021-10-31 08:21:09	2021-10-31 08:21:09
+4	rentcar-&-crew_8309	Rentcar & Crew	\N	2021-10-31 08:37:30	2021-10-31 08:37:30
+5	rentcar-&-crew_3904	Rentcar & Crew	\N	2021-10-31 08:37:47	2021-10-31 08:37:47
+7	rentcar-&-crew_2478	Rentcar & Crew	\N	2021-10-31 08:38:07	2021-10-31 08:38:07
+8	rentcar-&-crew_3591	Rentcar & Crew	\N	2021-10-31 08:38:50	2021-10-31 08:38:50
+9	rentcar-&-crew_5058	Rentcar & Crew	\N	2021-10-31 08:39:13	2021-10-31 08:39:13
+10	rentcar-&-crew_8754	Rentcar & Crew	\N	2021-10-31 08:41:11	2021-10-31 08:41:11
+11	rentcar-&-crew_3001	Rentcar & Crew	\N	2021-10-31 08:41:22	2021-10-31 08:41:22
+13	rentcar-&-crew_2716	Rentcar & Crew	\N	2021-10-31 08:41:48	2021-10-31 08:41:48
+14	rentcar-&-crew_4869	Rentcar & Crew	\N	2021-10-31 08:41:59	2021-10-31 08:41:59
+15	rentcar-&-crew_4409	Rentcar & Crew	\N	2021-10-31 08:42:08	2021-10-31 08:42:08
 \.
 
 
@@ -469,9 +496,33 @@ COPY public.galery (id, slug, title, "desc", created_at, updated_at, is_dashboar
 --
 
 COPY public.media (id, model_type, model_id, collection_name, name, file_name, mime_type, disk, size, manipulations, custom_properties, responsive_images, order_column, created_at, updated_at) FROM stdin;
-14	App\\Models\\ArticleModel	2	article	avanza	A4KDpQZiD3EAIlHX.png	image/png	article	315359	[]	[]	[]	4	2021-10-23 02:46:17	2021-10-23 02:46:17
-15	App\\Models\\ArticleModel	2	article	avanza	kxqxdnmvBjlw7KxZ.png	image/png	article	315359	[]	[]	[]	4	2021-10-23 02:46:17	2021-10-23 02:46:17
-16	App\\Models\\ArticleModel	1	article	avanza	vCVMrn1sofu1R5u5.png	image/png	article	315359	[]	[]	[]	5	2021-10-23 02:47:00	2021-10-23 02:47:00
+4	App\\Models\\GaleryModel	2	galery	WhatsApp Image 2021-10-26 at 12.15.24	rEJ0ekd3BSkPJcuh.jpeg	image/jpeg	galery	105101	[]	[]	[]	4	2021-10-31 08:21:09	2021-10-31 08:21:09
+5	App\\Models\\GaleryModel	4	galery	WhatsApp Image 2021-10-26 at 12.15.23(1)	eo1V2h7AU4IKCGpw.jpeg	image/jpeg	galery	59460	[]	[]	[]	5	2021-10-31 08:37:30	2021-10-31 08:37:30
+6	App\\Models\\GaleryModel	5	galery	WhatsApp Image 2021-10-26 at 12.15.23	Y3MdDYQ0j38xdHtb.jpeg	image/jpeg	galery	52657	[]	[]	[]	6	2021-10-31 08:37:47	2021-10-31 08:37:47
+8	App\\Models\\GaleryModel	7	galery	WhatsApp Image 2021-10-26 at 12.06.15	Q97EqnRe7uS3LTAj.jpeg	image/jpeg	galery	163604	[]	[]	[]	8	2021-10-31 08:38:07	2021-10-31 08:38:07
+9	App\\Models\\GaleryModel	8	galery	WhatsApp Image 2021-10-26 at 12.06.14(1)	RowhGFZ9QkEYZdTO.jpeg	image/jpeg	galery	231567	[]	[]	[]	9	2021-10-31 08:38:50	2021-10-31 08:38:50
+10	App\\Models\\GaleryModel	9	galery	WhatsApp Image 2021-10-26 at 12.06.14(2)	1fDRfUIfoDXBEVYI.jpeg	image/jpeg	galery	131919	[]	[]	[]	10	2021-10-31 08:39:13	2021-10-31 08:39:13
+11	App\\Models\\GaleryModel	10	galery	WhatsApp Image 2021-10-26 at 12.06.14	uXLThXKHVseBFxhz.jpeg	image/jpeg	galery	221376	[]	[]	[]	11	2021-10-31 08:41:11	2021-10-31 08:41:11
+12	App\\Models\\GaleryModel	11	galery	WhatsApp Image 2021-10-26 at 12.06.13(2)	RFMtxPvF1eSKOkDM.jpeg	image/jpeg	galery	198596	[]	[]	[]	12	2021-10-31 08:41:22	2021-10-31 08:41:22
+14	App\\Models\\GaleryModel	13	galery	WhatsApp Image 2021-10-26 at 12.06.12(1)	8a08Zqzoum8dWwBk.jpeg	image/jpeg	galery	125228	[]	[]	[]	14	2021-10-31 08:41:48	2021-10-31 08:41:48
+15	App\\Models\\GaleryModel	14	galery	WhatsApp Image 2021-10-26 at 12.06.12	51YxyEns02x1q1AB.jpeg	image/jpeg	galery	74697	[]	[]	[]	15	2021-10-31 08:41:59	2021-10-31 08:41:59
+16	App\\Models\\GaleryModel	15	galery	WhatsApp Image 2021-10-26 at 12.01.53	KQJ23bwsPHcjU0IZ.jpeg	image/jpeg	galery	89121	[]	[]	[]	16	2021-10-31 08:42:08	2021-10-31 08:42:08
+17	App\\Models\\ArticleModel	1	article	allnewavanza	dLHBajW0orOGmCSx.png	image/png	article	121725	[]	[]	[]	17	2021-10-31 08:47:53	2021-10-31 08:47:53
+18	App\\Models\\ArticleModel	2	article	allnewxenia	eoBHWDBgjhT9LeOG.png	image/png	article	343854	[]	[]	[]	18	2021-10-31 08:49:33	2021-10-31 08:49:33
+19	App\\Models\\ArticleModel	3	article	innovareborn	qZV4ZS9FMyiVOcOr.png	image/png	article	74442	[]	[]	[]	19	2021-10-31 08:50:15	2021-10-31 08:50:15
+20	App\\Models\\ArticleModel	4	article	xpander	3HOciS2WYmGMkqjS.jpg	image/jpeg	article	64529	[]	[]	[]	20	2021-10-31 08:50:35	2021-10-31 08:50:35
+21	App\\Models\\ArticleModel	5	article	agya	XDefkpUnsqSYWvpt.jpg	image/jpeg	article	62814	[]	[]	[]	21	2021-10-31 08:51:03	2021-10-31 08:51:03
+22	App\\Models\\ArticleModel	6	article	ayla	JrARX10Hx5gAmGWY.png	image/png	article	80577	[]	[]	[]	22	2021-10-31 08:51:20	2021-10-31 08:51:20
+23	App\\Models\\ArticleModel	7	article	avanza	urm69QB2fwE5ZM6h.jpg	image/jpeg	article	22825	[]	[]	[]	23	2021-10-31 08:52:01	2021-10-31 08:52:01
+24	App\\Models\\ArticleModel	8	article	xenia	cDfdGQmtCf7gkL7p.jpg	image/jpeg	article	18140	[]	[]	[]	24	2021-10-31 08:52:15	2021-10-31 08:52:15
+25	App\\Models\\ArticleModel	9	article	sgira	FlpPqtbnPmmRYVcH.jpg	image/jpeg	article	51616	[]	[]	[]	25	2021-10-31 08:52:50	2021-10-31 08:52:50
+26	App\\Models\\ArticleModel	10	article	hiace	I4zbTSIyuE1hxAGx.jpg	image/jpeg	article	36023	[]	[]	[]	26	2021-10-31 08:53:10	2021-10-31 08:53:10
+27	App\\Models\\ArticleModel	11	article	luxio	8JfK3WM5Ba2EeyyE.png	image/png	article	167204	[]	[]	[]	27	2021-10-31 08:53:27	2021-10-31 08:53:27
+28	App\\Models\\ArticleModel	12	article	granmax	8rr98ZHs8BZQor4P.jpg	image/jpeg	article	787787	[]	[]	[]	28	2021-10-31 08:53:42	2021-10-31 08:53:42
+29	App\\Models\\ArticleModel	13	article	pickupgranmax	sTrwOHLBCczZy2x4.jpeg	image/jpeg	article	44850	[]	[]	[]	29	2021-10-31 08:54:00	2021-10-31 08:54:00
+30	App\\Models\\ArticleModel	14	article	brio and new	2YjNwsClZAZkFjAj.png	image/png	article	310635	[]	[]	[]	30	2021-10-31 08:54:28	2021-10-31 08:54:28
+31	App\\Models\\ArticleModel	15	article	elf short	QoVkTV1qOWa0uKRn.png	image/png	article	293248	[]	[]	[]	31	2021-10-31 08:54:49	2021-10-31 08:54:49
+32	App\\Models\\ArticleModel	16	article	elf long	D4xaL9Q6Us6dAbLH.jpg	image/jpeg	article	59322	[]	[]	[]	32	2021-10-31 08:55:05	2021-10-31 08:55:05
 \.
 
 
