@@ -94,7 +94,7 @@
 
     <div class="col-md-12 text-center">
       <div class="wrap">
-        <a href="https://api.whatsapp.com/send?phone={{config('app.phone')}}&text=Halo%20admin" class="button"><i class="fa fa-whatsapp fa-2x text-white"></i></a>
+        <a href="https://api.whatsapp.com/send?phone={{config('app.phone')}}&text=Halo%20admin" target="_blank" class="button"><i class="fa fa-whatsapp fa-2x text-white"></i></a>
       </div>
     </div>
      </section><!-- End Services Section -->
